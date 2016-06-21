@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function todoListController(todoListService) {
+    function todoListController(todoListService, $location) {
 
         // Private variables
 
@@ -59,6 +59,10 @@
 
             }
             return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM YYYY, HH:MM');
+        };
+
+        ctrl.viewDetail = function(task){
+            $location.path('/task/' + task.id);
         };
 
         /**

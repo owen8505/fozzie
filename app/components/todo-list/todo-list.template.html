@@ -9,10 +9,10 @@
     </md-subheader>
     <md-list-item ng-repeat="task in $ctrl.tasks | orderBy: 'dueDate'" class="{{ $ctrl.getTaskStyle(task); }}">
         <md-checkbox ng-model="task.completed"></md-checkbox>
-        <div class="md-list-item-text" layout="column" flex>
+        <div class="md-list-item-text" ng-click="$ctrl.viewDetail(task)" layout="column" flex>
             <h3 ng-bind="task.description"></h3>
             <p class="due-date" ng-bind="$ctrl.getDueDate(task)"></p>
         </div>
-        <md-icon md-font-library="material-icons">&#xE315;</md-icon>
+        <md-icon md-font-library="material-icons" ng-click="$ctrl.viewDetail(task)">&#xE315;</md-icon>
     </md-list-item>
 </md-list>
