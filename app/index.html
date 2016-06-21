@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]>
-<html lang="en" ng-app="cftest" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<html lang="en" ng-app="dispatcher" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
-<html lang="en" ng-app="cftest" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<html lang="en" ng-app="dispatcher" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
-<html lang="en" ng-app="cftest" class="no-js lt-ie9"> <![endif]-->
+<html lang="en" ng-app="dispatcher" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="cftest" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="dispatcher" class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,10 +35,9 @@
 
 <div layout="row" flex>
     <md-content flex>
-        <todo-list></todo-list>
+        <div ng-view></div>
     </md-content>
 </div>
-
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -59,15 +58,22 @@
 <script src="bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 
-<!-- Application script -->
-<script src="app.js"></script>
+<!-- Application scripts -->
+<script src="app.module.js"></script>
+<script src="app.config.js"></script>
 
 <!-- Views -->
 
 <!-- Components -->
 <!-- Todo List Component -->
-<script src="components/todo-list/todoList.js"></script>
-<script src="components/todo-list/todoListService.js"></script>
+<script src="components/todo-list/todo-list.module.js"></script>
+<script src="components/todo-list/todo-list.component.js"></script>
+<script src="components/todo-list/todo-list.service.js"></script>
+
+<!-- Task Detail Component -->
+<script src="components/task/task.module.js"></script>
+<script src="components/task/task.component.js"></script>
+<script src="components/task/task.service.js"></script>
 
 </body>
 </html>
