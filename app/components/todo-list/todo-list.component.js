@@ -76,11 +76,12 @@
         init();
     }
 
-    angular.module('cftest').component('todoList', {
-        templateUrl: 'components/todo-list/todoList.html',
+    angular.module('todoList').component('todoList', {
+        templateUrl: 'components/todo-list/todo-list.template.html',
         controller: todoListController,
         bindings: {
 
         }
     });
+
 })(window.angular);
