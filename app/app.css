@@ -11,9 +11,14 @@
   color: darkgray; }
   .todo-list-component md-list-item.deprecated .ink-ripple {
     color: darkgray; }
+.todo-list-component md-list-item.warning .due-date {
+  color: darkorange; }
+.todo-list-component md-list-item.expired .due-date {
+  color: orangered; }
 .todo-list-component .due-date {
   font-size: 1rem; }
 .todo-list-component .md-list-item-inner {
+  border-bottom: darkgray;
   margin-bottom: 1.2rem; }
 
 .task-component h3, .task-component p {

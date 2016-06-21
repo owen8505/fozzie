@@ -1,6 +1,7 @@
 'use strict';
 
 // Moment configuration
+moment.locale("es");
 moment.tz.setDefault('America/Mexico_City');
 
 // Declare app level module which depends on views, and components

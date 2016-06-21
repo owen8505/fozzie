@@ -55,10 +55,8 @@
          */
         ctrl.getDueDate = function (task) {
             var elapsedTime = getElapsedTime(task.dueDate, 'hours');
-            if(elapsedTime < 24 && elapsedTime > 0) {
-
-            }
-            return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM YYYY, HH:MM');
+            console.log(elapsedTime);
+            return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM');
         };
 
         ctrl.viewDetail = function(task){
