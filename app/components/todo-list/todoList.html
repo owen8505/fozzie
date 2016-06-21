@@ -1,0 +1,18 @@
+<md-list ng-cloak class="md-dense todo-list-component">
+    <md-subheader class="md-no-sticky">
+        <div layout="column">
+            <md-input-container>
+                <label>Buscar</label>
+                <input ng-model="user.title">
+            </md-input-container>
+        </div>
+    </md-subheader>
+    <md-list-item ng-repeat="task in $ctrl.tasks | orderBy: 'dueDate'" class="{{ $ctrl.getTaskStyle(task); }}">
+        <md-checkbox ng-model="task.completed"></md-checkbox>
+        <div class="md-list-item-text" layout="column" flex>
+            <h3 ng-bind="task.description"></h3>
+            <p class="due-date" ng-bind="$ctrl.getDueDate(task)"></p>
+        </div>
+        <md-icon md-font-library="material-icons">&#xE315;</md-icon>
+    </md-list-item>
+</md-list>

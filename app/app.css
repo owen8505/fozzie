@@ -1,0 +1,19 @@
+/* app css stylesheet */
+.logo {
+  margin-right: 1rem;
+  max-width: 30px;
+  width: 100%; }
+
+.todo-list-component h3, .todo-list-component p {
+  margin: 0; }
+.todo-list-component md-list-item.deprecated {
+  background: rgba(10, 10, 10, 0.1);
+  color: darkgray; }
+  .todo-list-component md-list-item.deprecated .ink-ripple {
+    color: darkgray; }
+.todo-list-component .due-date {
+  font-size: 1rem; }
+.todo-list-component .md-list-item-inner {
+  margin-bottom: 1.2rem; }
+
+/*# sourceMappingURL=app.css.map */

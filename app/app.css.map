@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAAA,KAAK;EACD,YAAY,EAAE,IAAI;EAClB,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI;;ACDb,+CAAK;EACH,MAAM,EAAE,CAAC;AAGT,4CAAY;EACV,UAAU,EAAE,qBAAqB;EACjC,KAAK,EAAE,QAAQ;EAEf,wDAAW;IACT,KAAK,EAAE,QAAQ;AAErB,8BAAS;EACP,SAAS,EAAE,IAAI;AAEjB,wCAAmB;EACjB,aAAa,EAAE,MAAM",
+"sources": ["styles/_layout/_layout.sass","components/todo-list/todoListStyles.sass"],
+"names": [],
+"file": "app.css"
+}

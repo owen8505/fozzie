@@ -1,0 +1,22 @@
+2016-06-17T20:11:07.046455000 0.078210s notice: Recursively removing directory /Users/owen/Proyectos/Lavadero/Bicimensajeros/rethinkdb_data/tmp
+2016-06-17T20:11:07.048302000 0.080061s notice: Initializing directory /Users/owen/Proyectos/Lavadero/Bicimensajeros/rethinkdb_data
+2016-06-17T20:11:07.048408000 0.080163s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/owen/Proyectos/Lavadero/Bicimensajeros/rethinkdb_data' did not already exist or is empty.)
+2016-06-17T20:11:07.048432000 0.080186s notice: Running rethinkdb 2.3.4 (CLANG 7.3.0 (clang-703.0.29))...
+2016-06-17T20:11:07.059015000 0.090771s notice: Running on Darwin 15.5.0 x86_64
+2016-06-17T20:11:07.059067000 0.090823s notice: Loading data from directory /Users/owen/Proyectos/Lavadero/Bicimensajeros/rethinkdb_data
+2016-06-17T20:11:07.144654000 0.176409s info: Automatically using cache size of 188 MB
+2016-06-17T20:11:07.147324000 0.179078s notice: Listening for intracluster connections on port 29015
+2016-06-17T20:11:07.151248000 0.183003s notice: Listening for client driver connections on port 28015
+2016-06-17T20:11:07.151465000 0.183219s notice: Listening for administrative HTTP connections on port 8080
+2016-06-17T20:11:07.151469000 0.183224s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2016-06-17T20:11:07.151474000 0.183228s notice: Listening on driver addresses: 127.0.0.1, ::1
+2016-06-17T20:11:07.151476000 0.183231s notice: Listening on http addresses: 127.0.0.1, ::1
+2016-06-17T20:11:07.151480000 0.183234s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-06-17T20:11:07.151484000 0.183238s notice: Server ready, "MacBook_Pro_de_Luis_local_ulg" 3266a9aa-5308-4da5-9c33-5735af9a36ff
+2016-06-17T23:28:34.884553000 7152.040385s info: Table 2cfffeb3-dc0c-48af-a31d-becdd583cc9c: Starting a new Raft election for term 1.
+2016-06-17T23:28:34.887804000 7152.043636s info: Table 2cfffeb3-dc0c-48af-a31d-becdd583cc9c: Added replica on this server.
+2016-06-17T23:28:34.900126000 7152.055958s info: Table 2cfffeb3-dc0c-48af-a31d-becdd583cc9c: This server is Raft leader for term 1. Latest log index is 0.
+2016-06-19T23:02:54.816636000 35441.721778s notice: Someone asked for the nonwhitelisted file "/api".  If this should be accessible, add it to the static web assets.
+2016-06-19T23:03:19.593657000 35466.497751s notice: Someone asked for the nonwhitelisted file "/api".  If this should be accessible, add it to the static web assets.
+2016-06-20T00:03:35.506060000 38559.947757s notice: Someone asked for the nonwhitelisted file "/api".  If this should be accessible, add it to the static web assets.
+2016-06-20T00:05:00.010145000 38644.448237s notice: Someone asked for the nonwhitelisted file "/api".  If this should be accessible, add it to the static web assets.
