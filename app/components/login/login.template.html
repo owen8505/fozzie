@@ -1,0 +1,21 @@
+<div id="login-component">
+    <div class="login-form">
+        <form novalidate name="$ctrl.loginForm" ng-submit="$ctrl.login()">
+            <fieldset>
+                <span ng-show="$ctrl.formErrorMessage" class="required-message error-message">{{ $ctrl.formErrorMessage }}</span>
+                <div class="required-message" ng-show="$ctrl.loginForm.$submitted || $ctrl.loginForm.loginEmail.$touched">
+                    <span ng-show="$ctrl.loginForm.loginEmail.$error.required">El correo electrónico es requerido.</span>
+                    <span ng-show="$ctrl.loginForm.loginEmail.$error.email">El correo electrónico no es válido.</span>
+                </div>
+                <input type="email" placeholder="correo electrónico" name="loginEmail" ng-model="$ctrl.credentials.email" required>
+                <div class="required-message" ng-show="$ctrl.loginForm.$submitted || $ctrl.loginForm.loginPassword.$touched">
+                    <div ng-show="$ctrl.loginForm.loginPassword.$error.required">El password es requerido.</div>
+                </div>
+                <input type="password" placeholder="password" name="loginPassword" ng-model="$ctrl.credentials.password" required>
+            </fieldset>
+            <fieldset>
+                <button class="button-login">iniciar sesión</button>
+            </fieldset>
+        </form>
+    </div>
+</div>

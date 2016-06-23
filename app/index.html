@@ -57,14 +57,26 @@
 <script src="bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
 <!-- Application scripts -->
 <script src="app.module.js"></script>
 <script src="app.config.js"></script>
 
+<!-- Application libs -->
+<script src="shared/services/session.service.js"></script>
+
 <!-- Views -->
 
+<!-- Common Classes -->
+<script src="shared/classes/User.js"></script>
+
 <!-- Components -->
+<!-- Login Component -->
+<script src="components/login/login.module.js"></script>
+<script src="components/login/login.component.js"></script>
+<script src="components/login/login.service.js"></script>
+
 <!-- Todo List Component -->
 <script src="components/todo-list/todo-list.module.js"></script>
 <script src="components/todo-list/todo-list.component.js"></script>

@@ -9,6 +9,11 @@ angular.module('dispatcher', [
     'ngRoute',
     'ngResource',
     'ngMaterial',
+    'LocalStorageModule',
+    'login',
     'todoList',
     'task'
 ]);
+
+angular.module('dispatcher')
+    .constant('API_URL_BASE', 'http://198.61.202.55');
