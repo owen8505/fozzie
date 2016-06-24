@@ -11,26 +11,30 @@ angular.
             localStorageServiceProvider.setStorageCookie(45, '/');
             localStorageServiceProvider.setStorageCookieDomain('');
 
-            var authenticated = ['$q', '$location', 'sessionService', 'loginService', function ($q, $location, sessionService, loginService) {
+            var authenticate = ['$q', '$location', 'sessionService', 'loginService', function ($q, $location, sessionService, loginService) {
                 var deferred = $q.defer();
 
-                if(!sessionService.isAuthenticated()){
+                if(sessionService.isHttpHeaders()){
+                    sessionService.configHttpHeaders();
+
                     loginService.getCurrentSession()
                         .then(function(data){
-                            console.log(data);
-                            if(data.data.success){
-                                var result = data.data.result;
-                                sessionService.createSession(result.id, result.first_name, result.last_name, result.email);
+
+                            if(data.user){
                                 deferred.resolve();
                             }else{
                                 deferred.reject('Not logged in');
+                                $location.path("/login");
                             }
                         }, function(response){
                             deferred.reject('Not logged in');
+                            $location.path("/login");
                         });
 
                 } else {
-                    deferred.resolve();
+
+                    deferred.reject('Not logged in');
+                    $location.path("/login");
                 }
 
                 return deferred.promise;
@@ -43,10 +47,12 @@ angular.
                     template: '<login></login>'
                 }).
                 when('/todo', {
-                    template: '<todo-list></todo-list>'
+                    template: '<todo-list></todo-list>',
+                    resolve: authenticate
                 }).
                 when('/task/:taskId', {
-                    template: '<task></task>'
+                    template: '<task></task>',
+                    resolve: authenticate
                 }).
                 otherwise('/login');
 

@@ -10,8 +10,6 @@
         };
 
         var createSession = function (user) {
-            console.log(user.first_name);
-
             Session = new User(user.id, user.first_name, user.last_name, user.email);
             broadcast('sessionCreated');
         };
