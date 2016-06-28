@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function todoListController(todoListService) {
+    function todoListController(todoListService, $location) {
 
         // Private variables
 
@@ -22,13 +22,27 @@
          *
          * @type {Array}
          */
-        //ctrl.tasks = [];
+        var tasks = [];
 
+        /**
+         *
+         * @param date
+         * @param format
+         * @returns {number}
+         */
         var getElapsedTime = function (date, format) {
             return moment().diff(date, format);
         };
 
         // Instance variables
+
+        /**
+         *
+         * @returns {Array}
+         */
+        ctrl.getTasks = function () {
+            return tasks;
+        };
 
         /**
          *
@@ -41,11 +55,19 @@
             } else if(task.completed) {
                 console.log(TASK_STATUS_STYLES.deprecated)
                 return TASK_STATUS_STYLES.deprecated;
-            } else if(getElapsedTime(task.dueDate, 'minutes') < -15) {
+            } else if(getElapsedTime(task.dueDate, 'minutes') < -10) {
                 return TASK_STATUS_STYLES.warning
             } else if(getElapsedTime(task.dueDate, 'minutes') >= 0) {
                 return TASK_STATUS_STYLES.expired
             }
+        };
+
+        /**
+         * 
+         * @param taskId
+         */
+        ctrl.getTask = function (taskId) {
+            $location.path('/task/' + taskId);
         };
 
         /**
@@ -55,7 +77,6 @@
          */
         ctrl.getDueDate = function (task) {
             var elapsedTime = getElapsedTime(task.dueDate, 'hours');
-            console.log(elapsedTime);
             return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM');
         };
 
@@ -64,8 +85,7 @@
          */
         var init = function () {
             try {
-                ctrl.tasks = todoListService.getTasks();
-                console.log(ctrl.tasks);
+                tasks = todoListService.getTasks();
             } catch (e) {
                 console.log(e);
             }

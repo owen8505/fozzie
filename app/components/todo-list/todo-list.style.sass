@@ -1,9 +1,19 @@
 .todo-list-component
 
-  h3, p
+  h3, h4, p
+    line-height: 1.6
+    margin: 0
+
+  h3
+    font-size: 1rem
+    font-weight: normal
+
+  md-input-container
     margin: 0
 
   md-list-item
+    border-bottom: 1px solid lightgray
+
     &.deprecated
       background: rgba(10, 10, 10, 0.1)
       color: darkgray
@@ -19,10 +29,12 @@
       .due-date
         color: orangered
 
-  .due-date
-    font-size: 1rem
+    .due-date
+      font-size: 1rem
 
-  .md-list-item-inner
-    border-bottom: darkgray
-    margin-bottom: 1.2rem
+    .md-list-item-text
+      padding: 1.2rem 0
+
+  .md-subheader-inner
+    padding: 16px 16px 0
 

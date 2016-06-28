@@ -1,3 +1,10 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <img src="shared/assets/images/logo.svg" alt="Logo lavadero" class="logo">
+        <h2 class="md-flex">Bicimensajeros</h2>
+    </div>
+</md-toolbar>
+
 <md-list ng-cloak class="md-dense todo-list-component">
     <md-subheader class="md-no-sticky">
         <div layout="column">
@@ -7,10 +14,11 @@
             </md-input-container>
         </div>
     </md-subheader>
-    <md-list-item ng-repeat="task in $ctrl.tasks | orderBy: 'dueDate'" class="{{ $ctrl.getTaskStyle(task); }}">
-        <md-checkbox ng-model="task.completed"></md-checkbox>
+
+    <md-list-item ng-repeat="task in $ctrl.getTasks() | orderBy: 'dueDate'" class="{{ $ctrl.getTaskStyle(task); }}" ng-click="$ctrl.getTask(task.id)">
         <div class="md-list-item-text" layout="column" flex>
             <h3 ng-bind="task.description"></h3>
+            <h4 ng-bind="task.booking.id"></h4>
             <p class="due-date" ng-bind="$ctrl.getDueDate(task)"></p>
         </div>
         <md-icon md-font-library="material-icons">&#xE315;</md-icon>

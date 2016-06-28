@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function taskController(taskService, $routeParams) {
+    function taskController(taskService, $routeParams, todoListService) {
 
         /**
          *
@@ -9,14 +9,16 @@
          */
         var ctrl = this;
 
+        ctrl.task = undefined;
 
         /**
          * Inits the controller
          */
         var init = function () {
             try {
-                ctrl.taskId = $routeParams.taskId;
-                console.log(ctrl.taskId);
+                var taskId = $routeParams.taskId;
+                ctrl.task = todoListService.getTaskById(taskId);
+                console.log(ctrl.task)
             } catch (e) {
                 console.log(e);
             }

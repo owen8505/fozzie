@@ -13,7 +13,7 @@
     "angular-material": "~1.0.9",
     "angular-messages": "~1.5.6",
     "angular-mocks": "~1.5.6",
-    "angular-resource": "~1.7.9",
+    "angular-resource": "~1.5.6",
     "angular-route": "~1.5.6",
     "html5-boilerplate": "^5.3.0",
     "moment": "^2.13.0",
