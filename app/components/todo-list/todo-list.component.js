@@ -80,6 +80,10 @@
             return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM');
         };
 
+        ctrl.viewDetail = function(task){
+            $location.path('/task/' + task.id);
+        };
+
         /**
          * Inits the controller
          */
