@@ -16,7 +16,7 @@
     
     <!-- Vendor style sheets -->
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">      
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <!-- Angular Material style sheets -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,8 +25,6 @@
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-cloak layout="column">
-
-<navigation></navigation>
 
 <div layout="row" flex>
     <md-content flex>
@@ -52,14 +50,32 @@
 <script src="bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
 <!-- Application scripts -->
 <script src="app.module.js"></script>
 <script src="app.config.js"></script>
 
+<!-- Application libs -->
+<script src="shared/services/session.service.js"></script>
+
 <!-- Views -->
 
+<!-- Common Classes -->
+<script src="shared/classes/User.js"></script>
+
 <!-- Components -->
+
+<!-- NAvigation Component -->
+<script src="components/navigation/navigation.module.js"></script>
+<script src="components/navigation/navigation.component.js"></script>
+<script src="components/navigation/navigation.service.js"></script>
+
+<!-- Login Component -->
+<script src="components/login/login.module.js"></script>
+<script src="components/login/login.component.js"></script>
+<script src="components/login/login.service.js"></script>
+
 <!-- Todo List Component -->
 <script src="components/todo-list/todo-list.module.js"></script>
 <script src="components/todo-list/todo-list.component.js"></script>
