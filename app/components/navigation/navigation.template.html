@@ -1,0 +1,11 @@
+<md-toolbar class="navigation-component">
+    <div class="header md-toolbar-tools" layout="row">
+        <div flex="50">
+            <img src="shared/assets/images/logo.svg" alt="Logo lavadero" class="logo">
+            <h2 class="md-flex">Bicimensajeros</h2>
+        </div>
+        <div flex="50" layout="row" layout-align="end" >
+            <span class="menu-item" ng-click="$ctrl.logout()" ng-show="$ctrl.isAuthenticated()">Salir</span>
+        </div>
+    </div>
+</md-toolbar>

@@ -36,22 +36,6 @@
                 });
         };
 
-        var logout = function(){
-            var logoutServiceURL = API_URL_BASE + '/logout.json';
-            return $http.get(logoutServiceURL)
-                .then(function(response) {
-                    var data = response.data;
-
-                    sessionService.destroySession();
-                    sessionService.unsetHttpHeaders();
-
-                    return data;
-
-                }, function(error){
-                    return $q.reject(error.data);
-                });
-        };
-
         var getCurrentSession = function(){
             var sessionServiceURL = API_URL_BASE + '/session';
             return $http.get(sessionServiceURL, {})
@@ -86,7 +70,6 @@
 
         var service = {
             login: login,
-            logout: logout,
             getCurrentSession: getCurrentSession
         };
 

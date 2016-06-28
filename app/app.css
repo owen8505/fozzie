@@ -4,6 +4,12 @@
   max-width: 30px;
   width: 100%; }
 
+.navigation-component .header img,
+.navigation-component .header h2 {
+  display: inline-block; }
+.navigation-component .header .menu-item {
+  cursor: pointer; }
+
 .todo-list-component h3, .todo-list-component p {
   margin: 0; }
 .todo-list-component md-list-item.deprecated {

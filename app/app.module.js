@@ -10,6 +10,7 @@ angular.module('dispatcher', [
     'ngResource',
     'ngMaterial',
     'LocalStorageModule',
+    'navigation',
     'login',
     'todoList',
     'task'

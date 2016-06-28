@@ -26,12 +26,7 @@
 </head>
 <body ng-cloak layout="column">
 
-<md-toolbar>
-    <div class="md-toolbar-tools">
-        <img src="shared/assets/images/logo.svg" alt="Logo lavadero" class="logo">
-        <h2 class="md-flex">Bicimensajeros</h2>
-    </div>
-</md-toolbar>
+<navigation></navigation>
 
 <div layout="row" flex>
     <md-content flex>
@@ -72,6 +67,12 @@
 <script src="shared/classes/User.js"></script>
 
 <!-- Components -->
+
+<!-- NAvigation Component -->
+<script src="components/navigation/navigation.module.js"></script>
+<script src="components/navigation/navigation.component.js"></script>
+<script src="components/navigation/navigation.service.js"></script>
+
 <!-- Login Component -->
 <script src="components/login/login.module.js"></script>
 <script src="components/login/login.component.js"></script>

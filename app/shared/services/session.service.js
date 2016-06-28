@@ -31,7 +31,7 @@
         };
 
         var getHttpHeaders = function(){
-            return localStorageService.cookie.get('nbc-headers');
+            return localStorageService.cookie.get('fozzie-headers');
         };
 
         var configHttpHeaders = function(){
@@ -45,12 +45,12 @@
         };
 
         var setHttpHeaders = function(headers){
-            localStorageService.cookie.set('nbc-headers', headers);
+            localStorageService.cookie.set('fozzie-headers', headers);
             configHttpHeaders(headers);
         };
 
         var unsetHttpHeaders = function(){
-            localStorageService.cookie.remove('nbc-headers');
+            localStorageService.cookie.remove('fozzie-headers');
 
             $http.defaults.headers.common['access-token'] = undefined;
             $http.defaults.headers.common['expiry'] = undefined;

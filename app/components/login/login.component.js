@@ -17,16 +17,6 @@
 
         ctrl.formErrorMessage = '';
 
-        // Private variables
-        var originalCredentials = angular.copy(ctrl.credentials);
-
-        // Function to reset forms
-        var resetLogin = function(){
-            ctrl.credentials = angular.copy(originalCredentials);
-            ctrl.loginForm.$setPristine();
-            ctrl.loginForm.$setUntouched();
-        };
-
         // Function to authenticate a user
         ctrl.login = function() {
 

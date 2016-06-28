@@ -40,11 +40,40 @@ angular.
                 return deferred.promise;
             }];
 
+            var autoLogin = ['$q', '$location', 'sessionService', 'loginService', function ($q, $location, sessionService, loginService) {
+                var deferred = $q.defer();
+
+                if(sessionService.isHttpHeaders()){
+                    sessionService.configHttpHeaders();
+
+                    loginService.getCurrentSession()
+                        .then(function(data){
+
+                            if(data.user){
+                                deferred.resolve();
+                                $location.path("/todo");
+                            }else{
+                                deferred.resolve();
+
+                            }
+                        }, function(response){
+                            deferred.resolve();
+                        });
+
+                } else {
+
+                    deferred.resolve();
+                }
+
+                return deferred.promise;
+            }];
+
             $locationProvider.hashPrefix('!');
 
             $routeProvider.
                 when('/login', {
-                    template: '<login></login>'
+                    template: '<login></login>',
+                    resolve: autoLogin
                 }).
                 when('/todo', {
                     template: '<todo-list></todo-list>',
