@@ -39,4 +39,7 @@
 .task-component .md-list-item-inner {
   margin-bottom: 1.2rem; }
 
+#main {
+  overflow: scroll; }
+
 /*# sourceMappingURL=app.css.map */

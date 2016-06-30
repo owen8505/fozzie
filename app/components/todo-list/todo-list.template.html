@@ -1,18 +1,23 @@
-<md-list ng-cloak class="md-dense todo-list-component">
-    <md-subheader class="md-no-sticky">
-        <div layout="column">
-            <md-input-container>
-                <label>Buscar</label>
-                <input ng-model="user.title">
-            </md-input-container>
-        </div>
-    </md-subheader>
-    <md-list-item ng-repeat="task in $ctrl.tasks | orderBy: 'dueDate'" class="{{ $ctrl.getTaskStyle(task); }}">
-        <md-checkbox ng-model="task.completed"></md-checkbox>
-        <div class="md-list-item-text" ng-click="$ctrl.viewDetail(task)" layout="column" flex>
-            <h3 ng-bind="task.description"></h3>
-            <p class="due-date" ng-bind="$ctrl.getDueDate(task)"></p>
-        </div>
-        <md-icon md-font-library="material-icons" ng-click="$ctrl.viewDetail(task)">&#xE315;</md-icon>
-    </md-list-item>
-</md-list>
+<md-content flex>
+    <md-list ng-cloak class="md-dense todo-list-component">
+        <md-subheader class="md-no-sticky">
+            <div layout="column">
+                <md-input-container>
+                    <label>Buscar</label>
+                    <input ng-model="user.title">
+                </md-input-container>
+            </div>
+        </md-subheader>
+        <md-list-item ng-repeat="task in $ctrl.tasks | orderBy: 'dueDate'" class="{{ $ctrl.getTaskStyle(task); }}">
+            <md-checkbox ng-model="task.completed"></md-checkbox>
+            <div class="md-list-item-text" ng-click="$ctrl.viewDetail(task)" layout="column" flex>
+                <h3 ng-bind="task.description"></h3>
+                <p class="due-date" ng-bind="$ctrl.getDueDate(task)"></p>
+            </div>
+            <md-icon md-font-library="material-icons" ng-click="$ctrl.viewDetail(task)">&#xE315;</md-icon>
+        </md-list-item>
+    </md-list>
+</md-content>
+<md-button class="md-fab md-fab-bottom-right" aria-label="Actualizar" ng-click="$ctrl.refreshTasks()">
+    <md-icon md-font-library="material-icons">&#xE042;</md-icon>
+</md-button>

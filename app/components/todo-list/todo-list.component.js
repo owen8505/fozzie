@@ -20,6 +20,22 @@
 
         /**
          *
+         */
+        var getTasks = function() {
+            try {
+                ctrl.tasks = todoListService.getTasks();
+                console.log(ctrl.tasks);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+
+        ctrl.refreshTasks = function() {
+            getTasks();
+        };
+
+        /**
+         *
          * @type {Array}
          */
         //ctrl.tasks = [];
@@ -55,7 +71,6 @@
          */
         ctrl.getDueDate = function (task) {
             var elapsedTime = getElapsedTime(task.dueDate, 'hours');
-            console.log(elapsedTime);
             return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM');
         };
 
@@ -67,12 +82,7 @@
          * Inits the controller
          */
         var init = function () {
-            try {
-                ctrl.tasks = todoListService.getTasks();
-                console.log(ctrl.tasks);
-            } catch (e) {
-                console.log(e);
-            }
+            getTasks();
         };
 
         init();
