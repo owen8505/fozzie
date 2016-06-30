@@ -1,10 +1,10 @@
 (function(angular, sessionService) {
     'use strict';
 
-    angular.module('login').factory('loginService', ['$http', '$q', 'sessionService', 'API_URL_BASE', function ($http, $q, sessionService, API_URL_BASE) {
+    angular.module('login').factory('loginService', ['$http', '$q', 'sessionService', 'AUTH_API_URL_BASE', function ($http, $q, sessionService, AUTH_API_URL_BASE) {
 
         var login = function(user){
-            var loginServiceURL = API_URL_BASE + '/users/sign_in';
+            var loginServiceURL = AUTH_API_URL_BASE + '/users/sign_in';
             return $http.post(loginServiceURL, { user: user })
                 .then(function(response) {
                     var data = response.data;
@@ -37,7 +37,7 @@
         };
 
         var getCurrentSession = function(){
-            var sessionServiceURL = API_URL_BASE + '/session';
+            var sessionServiceURL = AUTH_API_URL_BASE + '/session';
             return $http.get(sessionServiceURL, {})
                 .then(function(response){
                     var data = response.data;

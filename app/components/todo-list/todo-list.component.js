@@ -23,11 +23,20 @@
          */
         var getTasks = function() {
             try {
-                ctrl.tasks = todoListService.getTasks();
+                ctrl.tasks = todoListService.getMockTasks();
                 console.log(ctrl.tasks);
             } catch (e) {
                 console.log(e);
             }
+
+            todoListService.callTasks()
+                .then(function(data) {
+                    if(data.bookings){
+                        ctrl.tasks = todoListService.getTasks();
+                    }
+                }, function(error) {
+                    console.log(error);
+                });
         };
 
         ctrl.refreshTasks = function() {
