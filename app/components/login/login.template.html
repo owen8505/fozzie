@@ -1,4 +1,31 @@
-<div id="login-component">
+<section class="login-component" layout-gt-sm="column" layout-padding>
+    <hgroup>
+        <h1>
+            Bicimensajeros
+        </h1>
+    </hgroup>
+    <form novalidate name="$ctrl.loginForm" ng-submit="$ctrl.login()">
+        <md-input-container class="md-block">
+            <label>Correo Electrónico</label>
+            <input type="email" name="loginEmail" ng-model="$ctrl.credentials.email" required>
+            <div ng-messages="$ctrl.loginForm.loginEmail.$error">
+                <div ng-message="$ctrl.loginForm.loginEmail.$error.required">El correo electrónico es inválido</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Contraseña</label>
+            <input type="password" name="loginPassword" ng-model="$ctrl.credentials.password" required>
+            <div ng-messages="$ctrl.loginForm.loginPassword.$error">
+                <div ng-message="$ctrl.loginForm.loginPassword.$error.required">La contraseña es requerida</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <md-button type='submit' class="md-raised md-primary">Ingresar</md-button>
+        </md-input-container>
+    </form>
+</section>
+
+<!--div id="login-component">
     <div class="login-form">
         <form novalidate name="$ctrl.loginForm" ng-submit="$ctrl.login()">
             <fieldset>
@@ -9,7 +36,7 @@
                 </div>
                 <input type="email" placeholder="correo electrónico" name="loginEmail" ng-model="$ctrl.credentials.email" required>
                 <div class="required-message" ng-show="$ctrl.loginForm.$submitted || $ctrl.loginForm.loginPassword.$touched">
-                    <div ng-show="$ctrl.loginForm.loginPassword.$error.required">El password es requerido.</div>
+                    <div ng-show="$ctrl.loginForm.loginPassword.$error.required">La contraseña es requerida.</div>
                 </div>
                 <input type="password" placeholder="password" name="loginPassword" ng-model="$ctrl.credentials.password" required>
             </fieldset>
@@ -18,4 +45,4 @@
             </fieldset>
         </form>
     </div>
-</div>
+</div-->

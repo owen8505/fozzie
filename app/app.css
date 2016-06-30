@@ -1,4 +1,3 @@
-/* app css stylesheet */
 .logo {
   margin-right: 1rem;
   max-width: 30px;
@@ -9,6 +8,23 @@
   display: inline-block; }
 .navigation-component .header .menu-item {
   cursor: pointer; }
+
+.login-component {
+  left: 50%;
+  max-width: 320px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; }
+  .login-component hgroup {
+    display: block; }
+    .login-component hgroup img {
+      max-width: 26px;
+      width: 100%; }
+  .login-component .login-component {
+    width: 100%; }
+    .login-component .login-component form {
+      width: 100%; }
 
 .todo-list-component h3, .todo-list-component h4, .todo-list-component p {
   line-height: 1.6;
