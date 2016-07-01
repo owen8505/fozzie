@@ -17,4 +17,5 @@ angular.module('dispatcher', [
 ]);
 
 angular.module('dispatcher')
-    .constant('API_URL_BASE', 'http://198.61.202.55');
+    .constant('AUTH_API_URL_BASE', 'http://198.61.202.55')
+    .constant('API_URL_BASE', 'http://lavader.herokuapp.com');

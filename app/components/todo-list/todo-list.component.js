@@ -20,9 +20,28 @@
 
         /**
          *
-         * @type {Array}
          */
-        var tasks = [];
+        var getTasks = function() {
+            try {
+                ctrl.tasks = todoListService.getMockTasks();
+                console.log(ctrl.tasks);
+            } catch (e) {
+                console.log(e);
+            }
+
+            todoListService.callTasks()
+                .then(function(data) {
+                    if(data.bookings){
+                        ctrl.tasks = todoListService.getTasks();
+                    }
+                }, function(error) {
+                    console.log(error);
+                });
+        };
+
+        ctrl.refreshTasks = function() {
+            getTasks();
+        };
 
         /**
          *
@@ -88,11 +107,7 @@
          * Inits the controller
          */
         var init = function () {
-            try {
-                tasks = todoListService.getTasks();
-            } catch (e) {
-                console.log(e);
-            }
+            getTasks();
         };
 
         init();
