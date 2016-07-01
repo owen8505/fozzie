@@ -3,6 +3,12 @@
 
     function todoListController(todoListService, $location) {
 
+        /**
+         *
+         * @type {todoListController}
+         */
+        var ctrl = this;
+
         // Private variables
 
         var TASK_STATUS_STYLES = {
@@ -12,18 +18,14 @@
             warning: 'warning'
         };
 
-        /**
-         *
-         * @type {todoListController}
-         */
-        var ctrl = this;
+        var tasks = [];
 
         /**
          *
          */
         var getTasks = function() {
             try {
-                ctrl.tasks = todoListService.getMockTasks();
+                tasks = todoListService.getMockTasks();
                 console.log(ctrl.tasks);
             } catch (e) {
                 console.log(e);

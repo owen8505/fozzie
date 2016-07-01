@@ -1,10 +1,10 @@
 (function(angular) {
     'use strict';
 
-    angular.module('navigation').factory('navigationService', ['$http', '$q', 'sessionService', 'API_URL_BASE', function ($http, $q, sessionService, API_URL_BASE) {
+    angular.module('navigation').factory('navigationService', ['$http', '$q', 'sessionService', 'AUTH_API_URL_BASE', function ($http, $q, sessionService, AUTH_API_URL_BASE) {
 
         var logout = function(){
-            var logoutServiceURL = API_URL_BASE + '/logout.json';
+            var logoutServiceURL = AUTH_API_URL_BASE + '/logout.json';
             return $http.get(logoutServiceURL)
                 .then(function(response) {
                     var data = response.data;
