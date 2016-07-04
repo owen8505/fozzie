@@ -24,9 +24,34 @@
                 }
             }
             return undefined;
-        };
+        }
 
         var tasks = [];
+
+        var transformToObject = function(bookings, tasks){
+            var list = [];
+
+            try{
+                for(var i=0; i<tasks.length; i++) {
+                    var task = tasks[i];
+
+                    var booking = undefined;
+                    for(var j=0; j<bookings.length; j++){
+                        if(task.booking_uid == bookings[j].id){
+                            booking = new Booking(bookings[i].booking_id, bookings[i].id, bookings[i].customer_name, bookings[i].customer_address, bookings[i].customer_phone, bookings[i].customer_city, bookings[i].status, bookings[i].total);
+                            break;
+                        }
+                    }
+
+                    list.push(new Task(task.id, booking));
+
+                }
+            } catch(error){
+                console.log(error);
+            }
+
+            return list;
+        };
 
         function callTasks() {
             var tasksServiceURL = API_URL_BASE + '/bookings/in_the_future_by_courier?name=Marco';
@@ -35,7 +60,7 @@
                     var data = response.data;
                     if (typeof data === 'object') {
                         if(data.bookings){
-                            tasks = data.bookings;
+                            tasks = transformToObject(data.bookings, data.items);
                         }
                         return data;
                     } else {

@@ -26,7 +26,7 @@
         var getTasks = function() {
             try {
                 tasks = todoListService.getMockTasks();
-                console.log(ctrl.tasks);
+                console.log(tasks);
             } catch (e) {
                 console.log(e);
             }
@@ -35,6 +35,7 @@
                 .then(function(data) {
                     if(data.bookings){
                         ctrl.tasks = todoListService.getTasks();
+                        console.log(ctrl.tasks);
                     }
                 }, function(error) {
                     console.log(error);
