@@ -43,7 +43,7 @@
                         }
                     }
 
-                    list.push(new Task(task.id, booking));
+                    list.push(new Task(task.id, booking, task.status_id, task.name, new moment(task.start_date), new moment(task.end_date)));
 
                 }
             } catch(error){
@@ -76,14 +76,9 @@
             return angular.copy(tasks);
         }
 
-        function getMockTasks() {
-            return angular.copy(mockTasks);
-        }
-
         var service = {
             getTasks: getTasks,
             callTasks: callTasks,
-            getMockTasks: getMockTasks,
             getTaskById: getTaskById
         };
 

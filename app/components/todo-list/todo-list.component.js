@@ -23,19 +23,11 @@
         /**
          *
          */
-        var getTasks = function() {
-            try {
-                tasks = todoListService.getMockTasks();
-                console.log(tasks);
-            } catch (e) {
-                console.log(e);
-            }
-
+        var callTasks = function() {
             todoListService.callTasks()
                 .then(function(data) {
                     if(data.bookings){
-                        ctrl.tasks = todoListService.getTasks();
-                        console.log(ctrl.tasks);
+                        tasks = todoListService.getTasks();
                     }
                 }, function(error) {
                     console.log(error);
@@ -43,7 +35,7 @@
         };
 
         ctrl.refreshTasks = function() {
-            getTasks();
+            callTasks();
         };
 
         /**
@@ -85,21 +77,14 @@
         };
 
         /**
-         * 
-         * @param taskId
-         */
-        ctrl.getTask = function (taskId) {
-            $location.path('/task/' + taskId);
-        };
-
-        /**
          *
          * @param dueDate
          * @returns {string}
          */
         ctrl.getDueDate = function (task) {
-            var elapsedTime = getElapsedTime(task.dueDate, 'hours');
-            return (elapsedTime < 24 && elapsedTime > 0)? task.dueDate.format('HH:MM') : task.dueDate.format('D MMMM');
+            var dueDate = task.getEndDate();
+            var elapsedTime = getElapsedTime(dueDate, 'hours');
+            return (elapsedTime < 24 && elapsedTime > 0)? dueDate.format('HH:MM') : dueDate.format('D MMMM');
         };
 
         ctrl.viewDetail = function(task){
@@ -110,7 +95,7 @@
          * Inits the controller
          */
         var init = function () {
-            getTasks();
+            callTasks();
         };
 
         init();
