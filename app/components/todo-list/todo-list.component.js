@@ -77,8 +77,8 @@
         };
 
         /**
-         *
-         * @param dueDate
+         * Gets the end date formatted of a task
+         * @param task
          * @returns {string}
          */
         ctrl.getDueDate = function (task) {
@@ -87,8 +87,12 @@
             return (elapsedTime < 24 && elapsedTime > 0)? dueDate.format('HH:MM') : dueDate.format('D MMMM');
         };
 
-        ctrl.viewDetail = function(task){
-            $location.path('/task/' + task.id);
+        /**
+         * Go to taks detail section
+         * @param taskId
+         */
+        ctrl.viewDetail = function(taskId){
+            $location.path('/task/' + taskId);
         };
 
         /**

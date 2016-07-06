@@ -17,8 +17,7 @@
         var init = function () {
             try {
                 var taskId = $routeParams.taskId;
-                ctrl.task = todoListService.getTaskById(taskId);
-                console.log(ctrl.task)
+                ctrl.task = todoListService.getTaskById(taskId);                
             } catch (e) {
                 console.log(e);
             }

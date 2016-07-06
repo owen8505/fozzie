@@ -19,7 +19,7 @@
         function getTaskById(taskId) {
             for(var taskIndex=0; taskIndex<tasks.length; taskIndex++) {
                 var task = tasks[taskIndex];
-                if (task.id == taskId) {
+                if (task.getId() == taskId) {
                     return task;
                 }
             }
