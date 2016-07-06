@@ -81,7 +81,7 @@ angular.
                     resolve: authenticate,
                     view: 'todo'
                 }).
-                when('/task/:taskId', {
+                when('/task/:bookingId/:taskId', {
                     template: '<task></task>',
                     resolve: authenticate,
                     view: 'task'

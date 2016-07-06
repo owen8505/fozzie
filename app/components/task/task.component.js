@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function taskController(taskService, $routeParams, todoListService) {
+    function taskController(taskService, $routeParams) {
 
         /**
          *
@@ -9,21 +9,36 @@
          */
         var ctrl = this;
 
-        ctrl.task = undefined;
+        var _task = undefined;
 
         /**
-         * Inits the controller
+         *
          */
-        var init = function () {
-            try {
-                var taskId = $routeParams.taskId;
-                ctrl.task = todoListService.getTaskById(taskId);                
-            } catch (e) {
-                console.log(e);
-            }
+        var callTask = function(bookingId, taskId) {
+            taskService.callTask()
+                .then(function(data) {
+                    if(data.bookings){
+                        _task = taskService.getTask();
+                    }
+                }, function(error) {
+                    console.log(error);
+                });
         };
 
-        init();
+        /**
+         *
+         */
+        ctrl.getTask = function() {
+            return _task;
+        };
+
+
+        /**
+         *
+         */
+        this.$onInit = function() {
+            callTask($routeParams.bookingId, $routeParams.taskId);
+        }
     }
 
     angular
