@@ -31,6 +31,10 @@
             return routingService.getView();
         };
 
+        ctrl.goTo = function(path) {
+            $location.path(path);
+        };
+
         /**
          * Inits the controller
          */
