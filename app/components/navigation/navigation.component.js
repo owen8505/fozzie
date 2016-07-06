@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function navigationController($location, navigationService, sessionService) {
+    function navigationController($rootScope, $location, navigationService, sessionService, routingService) {
 
         /**
          *
@@ -25,6 +25,10 @@
                         console.log(error.errors[0].title);
                     }
                 });
+        };
+
+        ctrl.getView = function() {
+            return routingService.getView();
         };
 
         /**

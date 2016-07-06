@@ -73,15 +73,18 @@ angular.
             $routeProvider.
                 when('/login', {
                     template: '<login></login>',
-                    resolve: autoLogin
+                    resolve: autoLogin,
+                    view: 'login'
                 }).
                 when('/todo', {
                     template: '<todo-list></todo-list>',
-                    resolve: authenticate
+                    resolve: authenticate,
+                    view: 'todo'
                 }).
                 when('/task/:taskId', {
                     template: '<task></task>',
-                    resolve: authenticate
+                    resolve: authenticate,
+                    view: 'task'
                 }).
                 otherwise('/login');
 

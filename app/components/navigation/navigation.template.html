@@ -1,4 +1,4 @@
-<md-toolbar class="navigation-component">
+<md-toolbar class="navigation-component" ng-if="$ctrl.getView() != 'task'">
     <div class="header md-toolbar-tools" layout="row">
         <div flex="80">
             <img src="shared/assets/images/logo.svg" alt="Logo lavadero" class="logo">
@@ -7,5 +7,16 @@
         <div flex="20" layout="row" layout-align="end" >
             <span class="menu-item" ng-click="$ctrl.logout()" ng-show="$ctrl.isAuthenticated()">Salir</span>
         </div>
+    </div>
+</md-toolbar>
+
+
+<md-toolbar md-scroll-shrink ng-if="$ctrl.getView() == 'task'">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="$ctrl.back('todoList')" aria-label="Menu">
+            <md-icon md-font-library="material-icons">&#xE5C4;</md-icon>
+        </md-button>
+        <h3>Detalle</h3>
+        <span flex></span>
     </div>
 </md-toolbar>
