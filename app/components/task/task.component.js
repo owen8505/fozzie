@@ -62,6 +62,24 @@
         /**
          *
          */
+        ctrl.endTask = function() {
+            var futureStatus = 'CO12';
+            if(taskService.validateStatusChange(_task, futureStatus)){
+                taskService.updateTaskStatus(_task, futureStatus)
+                    .then(function(data){
+                        if(data.bookings){
+                            _task = taskService.getTask();
+                        }
+                    }, function(error) {
+                        console.log(error);
+                    });
+            }
+
+        };
+
+        /**
+         *
+         */
         this.$onInit = function() {
             callTask($routeParams.bookingId, $routeParams.taskId);
         }
