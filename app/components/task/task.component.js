@@ -41,6 +41,20 @@
             return _task;
         };
 
+        /**
+         *
+         */
+        ctrl.startTask = function() {
+            taskService.updateTaskStatus(_task, 'RECOL')
+                .then(function(data){
+                    if(data.bookings){
+                        _task = taskService.getTask();
+                        console.log(_task.toString());
+                    }
+                }, function(error) {
+                    console.log(error);
+                });
+        };
 
         /**
          *

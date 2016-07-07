@@ -24,6 +24,7 @@
          *
          */
         var callTasks = function() {
+            tasks = [];
             todoListService.callTasks()
                 .then(function(data) {
                     if(data.bookings){
@@ -67,7 +68,6 @@
             if(task.completed && getElapsedTime(task.dueDate, 'hours') < 24) {
                 return TASK_STATUS_STYLES.completed;
             } else if(task.completed) {
-                console.log(TASK_STATUS_STYLES.deprecated)
                 return TASK_STATUS_STYLES.deprecated;
             } else if(getElapsedTime(task.dueDate, 'minutes') < -10) {
                 return TASK_STATUS_STYLES.warning

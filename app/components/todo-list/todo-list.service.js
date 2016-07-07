@@ -3,29 +3,6 @@
 
     angular.module('todoList').factory('todoListService', ['$http', '$q', 'API_URL_BASE', function ($http, $q, API_URL_BASE) {
 
-        var mockTasks = [
-            { id: 1, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-15T21:28:42.606Z'), completedDate: undefined },
-            { id: 2, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-21T21:28:42.606Z'), completedDate: undefined },
-            { id: 3, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-22T21:28:42.606Z'), completedDate: undefined },
-            { id: 4, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-14T21:28:42.606Z'), completedDate: undefined },
-            { id: 5, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-23T21:28:42.606Z'), completedDate: undefined },
-            { id: 1, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-15T21:28:42.606Z'), completedDate: undefined },
-            { id: 2, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-21T21:28:42.606Z'), completedDate: undefined },
-            { id: 3, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-22T21:28:42.606Z'), completedDate: undefined },
-            { id: 4, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-14T21:28:42.606Z'), completedDate: undefined },
-            { id: 5, description: 'Recolección Juan Martínez', completed: false, dueDate: new moment('2016-06-23T21:28:42.606Z'), completedDate: undefined }
-        ];
-
-        function getTaskById(taskId) {
-            for(var taskIndex=0; taskIndex<tasks.length; taskIndex++) {
-                var task = tasks[taskIndex];
-                if (task.getId() == taskId) {
-                    return task;
-                }
-            }
-            return undefined;
-        }
-
         var tasks = [];
 
         var transformToObject = function(bookings, tasks){
@@ -43,7 +20,7 @@
                         }
                     }
 
-                    list.push(new Task(task.id, booking, task.status_id, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date)));
+                    list.push(new Task(task.id, booking, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date)));
 
                 }
             } catch(error){
@@ -78,8 +55,7 @@
 
         var service = {
             getTasks: getTasks,
-            callTasks: callTasks,
-            getTaskById: getTaskById
+            callTasks: callTasks
         };
 
         return service;
