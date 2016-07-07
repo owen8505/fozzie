@@ -12,11 +12,14 @@
 
 
 <md-toolbar md-scroll-shrink ng-if="$ctrl.getView() == 'task'">
-    <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" ng-click="$ctrl.goTo('/todo')" aria-label="Menu">
-            <md-icon md-font-library="material-icons">&#xE5C4;</md-icon>
-        </md-button>
-        <h3>Detalle</h3>
-        <span flex></span>
+    <div class="header md-toolbar-tools" layout="row">
+        <div flex="10">
+            <md-button class="md-icon-button" ng-click="$ctrl.goTo('/todo')" aria-label="Menu">
+                <md-icon md-font-library="material-icons">&#xE5C4;</md-icon>
+            </md-button>
+        </div>
+        <div flex="80" layout="row" layout-align="center">
+            <h3>Detalle</h3>
+        </div>
     </div>
 </md-toolbar>
