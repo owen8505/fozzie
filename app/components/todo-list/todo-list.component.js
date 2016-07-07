@@ -91,18 +91,16 @@
          * Go to taks detail section
          * @param taskId
          */
-        ctrl.viewDetail = function(taskId){
-            $location.path('/task/' + taskId);
+        ctrl.viewDetail = function(task){
+            $location.path('/task/' + task.getBooking().getOrderNumber() + '/' + task.getId());
         };
 
         /**
-         * Inits the controller
+         *
          */
-        var init = function () {
+        this.$onInit = function() {
             callTasks();
-        };
-
-        init();
+        }
     }
 
     angular.module('todoList').component('todoList', {

@@ -43,7 +43,7 @@
                         }
                     }
 
-                    list.push(new Task(task.id, booking, task.status_id, task.name, new moment(task.start_date), new moment(task.end_date)));
+                    list.push(new Task(task.id, booking, task.status_id, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date)));
 
                 }
             } catch(error){

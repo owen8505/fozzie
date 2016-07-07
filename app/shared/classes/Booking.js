@@ -163,6 +163,18 @@ function Booking(id, orderNumber, customerName, customerAddress, customerPhone, 
         _total = total;
     };
 
+    this.toString = function() {
+        return 'Booking[' +
+                'id: ' + _id +
+                ', orderNumber: ' + _orderNumber +
+                ', customerName: ' + _customerName +
+                ', customerAddress: ' + _customerAddress +
+                ', customerPhone: ' + _customerPhone +
+                ', customerCity: ' + _customerCity +
+                ', status: ' + _status +
+                ', total: ' + _total +
+            ']'
+    }
 
     this.constructor(id, orderNumber, customerName, customerAddress, customerPhone, customerCity, status, total);
 

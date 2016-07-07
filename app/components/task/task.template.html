@@ -11,22 +11,22 @@
                 <table class="task-info">
                     <caption>Datos de la orden</caption>
                     <tr>
-                        <td class="order-number">{{ $ctrl.booking.getOrderNumber() }}</td>
+                        <td class="order-number" ng-bind="$ctrl.getTask().getBooking().getOrderNumber()"></td>
                     </tr>
                     <tr>
-                        <td>{{ $ctrl.booking.getCustomerName() }}</td>
+                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerName()"></td>
                     </tr>
                     <tr>
-                        <td>{{ $ctrl.booking.getCustomerAddress() }}</td>
+                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerAddress()"></td>
                     </tr>
                     <tr>
-                        <td>{{ $ctrl.booking.getCustomerCity() }}</td>
+                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerCity()"></td>
                     </tr>
                     <tr>
-                        <td>{{ $ctrl.booking.getCustomerPhone() }}</td>
+                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerPhone()"></td>
                     </tr>
                     <tr>
-                        <td>{{ $ctrl.booking.getStatus() }}</td>
+                        <td ng-bind="$ctrl.getTask().getBooking().getStatus()"></td>
                     </tr>
                 </table>
             </md-card-content>

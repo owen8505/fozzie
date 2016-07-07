@@ -122,6 +122,21 @@ function Task(id, booking, status, name, startDate, endDate) {
         _endDate = endDate;
     };
 
+    /**
+     * 
+     * @returns {string}
+     */
+    this.toString = function() {
+        return 'Task[' +
+                'id: ' + _id +
+                ', booking: ' + _booking.toString() +
+                ', status: ' + _status +
+                ', name: ' + _name +
+                ', startDate: ' + _startDate +
+                ', endDate: ' + _endDate +
+            ']';
+    };
+
 
     this.constructor(id, booking, status, name, startDate, endDate);
 

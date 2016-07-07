@@ -11,35 +11,43 @@
 
         /**
          * 
+         * @type {undefined}
+         * @private
          */
-        ctrl.task = undefined;
-
-        /**
-         * 
-         */
-        ctrl.booking = undefined;
+        var _task = undefined;
 
         ctrl.getTaskTitle = function () {
-            return (ctrl.task)?  $sce.trustAsHtml(ctrl.task.getName() + "<br> De " + moment.unix(ctrl.task.getStartDate()).format('HH:MM') + " a " + moment.unix(ctrl.task.getEndDate()).format('HH:MM')) : "";
-
+            return (_task)?  $sce.trustAsHtml(_task.getName() + "<br> De " + _task.getStartDate().format('HH:MM') + " a " + _task.getEndDate().format('HH:MM')) : "";
         };
 
         /**
-         * Inits the controller
+         *
          */
-        var init = function () {
-            try {
-                var taskId = $routeParams.taskId;
-                ctrl.task = todoListService.getTaskById(taskId);
-                if(ctrl.task) {
-                    ctrl.booking = ctrl.task.getBooking();
-                }                                
-            } catch (e) {
-                console.log(e);
-            }
+        var callTask = function(bookingId, taskId) {
+            taskService.callTask()
+                .then(function(data) {
+                    if(data.bookings){
+                        _task = taskService.getTask();
+                    }
+                }, function(error) {
+                    console.log(error);
+                });
         };
 
-        init();
+        /**
+         *
+         */
+        ctrl.getTask = function() {
+            return _task;
+        };
+
+
+        /**
+         *
+         */
+        this.$onInit = function() {
+            callTask($routeParams.bookingId, $routeParams.taskId);
+        }
     }
 
     angular
