@@ -52,26 +52,31 @@
 .todo-list-component .md-subheader-inner {
   padding: 16px 16px 0; }
 
-.task-component h3, .task-component p {
-  margin: 0; }
-.task-component md-content {
-  padding: 2rem; }
-.task-component md-list-item.deprecated {
-  background: rgba(10, 10, 10, 0.1);
-  color: darkgray;
-  padding: 1rem 0; }
-  .task-component md-list-item.deprecated .ink-ripple {
-    color: darkgray; }
-.task-component .due-date {
-  font-size: 1rem; }
-.task-component .md-list-item-inner {
-  margin-bottom: 1.2rem; }
-.task-component .task-info {
-  margin: 0 0 2rem;
-  width: 100%; }
-  .task-component .task-info thead {
-    font-weight: bold;
-    text-align: left; }
+.task-component {
+  background: #E8EAF6; }
+  .task-component h3, .task-component p {
+    margin: 0; }
+  .task-component md-list-item.deprecated {
+    background: rgba(10, 10, 10, 0.1);
+    color: darkgray;
+    padding: 1rem 0; }
+    .task-component md-list-item.deprecated .ink-ripple {
+      color: darkgray; }
+  .task-component .due-date {
+    font-size: 1rem; }
+  .task-component .md-list-item-inner {
+    margin-bottom: 1.2rem; }
+  .task-component .task-info {
+    width: 100%; }
+    .task-component .task-info caption {
+      font-weight: bold;
+      text-align: left; }
+    .task-component .task-info thead {
+      font-weight: bold;
+      text-align: left; }
+    .task-component .task-info .order-number {
+      font-size: 2rem;
+      font-weight: bold; }
 
 #main {
   overflow: scroll; }
