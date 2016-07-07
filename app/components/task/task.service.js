@@ -39,35 +39,36 @@
             return angular.copy(_task);
         }
 
+        function validateStatusChange(task, status) {
+            var futureStatusOptions = ORDER_STATUSES[task.getBooking().getStatus()];
+            return futureStatusOptions.indexOf(status) != -1;
+        }
+
         function updateTaskStatus(task, status) {
 
-            var futureStatusOptions = ORDER_STATUSES[task.getBooking().getStatus()];
-
-            if( futureStatusOptions.indexOf(status) != -1 ) {
-                var tasksServiceURL = API_URL_BASE + '/bookings/in_the_future_by_courier?name=Marco';
-                return $http.get(tasksServiceURL)
-                    .then(function(response) {
-                        var data = response.data;
-                        if (typeof data === 'object') {
-                            if(data.bookings){
-                                _task = transformToObject(data.bookings[0], data.items[0]);
-                                _task.getBooking().setStatus(status);
-                            }
-                            return data;
-                        } else {
-                            return $q.reject(data);
+            var tasksServiceURL = API_URL_BASE + '/bookings/in_the_future_by_courier?name=Marco';
+            return $http.get(tasksServiceURL)
+                .then(function(response) {
+                    var data = response.data;
+                    if (typeof data === 'object') {
+                        if(data.bookings){
+                            _task = transformToObject(data.bookings[0], data.items[0]);
+                            _task.getBooking().setStatus(status);
                         }
+                        return data;
+                    } else {
+                        return $q.reject(data);
+                    }
 
-                    }, function(error){
-                        return $q.reject(error.data);
-                    });
-            }
-
+                }, function(error){
+                    return $q.reject(error.data);
+                });
         }
         
         var service = {
             callTask: callTask,
             getTask: getTask,
+            validateStatusChange: validateStatusChange,
             updateTaskStatus: updateTaskStatus
         };
 
