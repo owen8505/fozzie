@@ -17,7 +17,7 @@ angular.module('dispatcher', [
 ]);
 
 angular.module('dispatcher')
-    .constant('AUTH_API_URL_BASE', 'http://198.61.202.55')
+    .constant('AUTH_API_URL_BASE', 'http://198.61.202.55:8080')
     .constant('API_URL_BASE', 'http://lavader.herokuapp.com')
     .constant('ORDER_STATUSES', {
         'HOLD': ['RECOL'],

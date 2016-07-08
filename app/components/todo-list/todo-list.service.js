@@ -15,7 +15,11 @@
                     var booking = undefined;
                     for(var j=0; j<bookings.length; j++){
                         if(task.booking_uid == bookings[j].id){
-                            booking = new Booking(bookings[i].booking_id, bookings[i].id, bookings[i].customer_name, bookings[i].customer_address, bookings[i].customer_phone, bookings[i].customer_city, bookings[i].status, bookings[i].total);
+                            bookings[i].fields.comentario = {'val': 'test'};
+                            bookings[i].fields.prov2 = {'val': 'test'};
+                            bookings[i].fields.info_cli = {'val': 'test'};
+                            bookings[i].fields.info_notas = {'val': 'test'};
+                            booking = new Booking(bookings[i].booking_id, bookings[i].id, bookings[i].customer_name, bookings[i].customer_address, bookings[i].fields.interior.val, bookings[i].fields.entrecalles.val, bookings[i].fields.comentario.val, bookings[i].fields.portero.val, bookings[i].customer_phone, bookings[i].customer_city, bookings[i].fields.prov.val, bookings[i].fields.prov2.val, bookings[i].fields.servicios.val, bookings[i].fields.especificaciones.val, bookings[i].fields.info_cli.val, bookings[i].fields.info_notas.val, bookings[i].status_id, bookings[i].fields.formapago.val, bookings[i].total);
                             break;
                         }
                     }
