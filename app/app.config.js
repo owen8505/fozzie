@@ -86,7 +86,7 @@ angular.
                     resolve: authenticate,
                     view: 'task'
                 }).
-                otherwise('/login');
+                otherwise('/todo');
 
 
         }
