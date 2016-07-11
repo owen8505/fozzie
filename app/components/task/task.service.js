@@ -12,7 +12,7 @@
                 booking.fields.info_cli = {'val': 'test'};
                 booking.fields.info_notas = {'val': 'test'};
                 var booking = new Booking(booking.booking_id, booking.id, booking.customer_name, booking.customer_address, booking.fields.interior.val, booking.fields.entrecalles.val, booking.fields.comentario.val, booking.fields.portero.val, booking.customer_phone, booking.customer_city, booking.fields.prov.val, booking.fields.prov2.val, booking.fields.servicios.val, booking.fields.especificaciones.val, booking.fields.info_cli.val, booking.fields.info_notas.val, booking.status_id, booking.fields.formapago.val, booking.total);
-                var task = new Task(task.id, booking, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date));
+                var task = new Task(task.id, booking, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date), 'DELIVERY');
             } catch(error){
                 console.log(error);
             }

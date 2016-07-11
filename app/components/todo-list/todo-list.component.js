@@ -84,7 +84,7 @@
         ctrl.getDueDate = function (task) {
             var dueDate = task.getEndDate();
             var elapsedTime = getElapsedTime(dueDate, 'hours');
-            return (elapsedTime < 24 && elapsedTime > 0)? dueDate.format('HH:MM') : dueDate.format('D MMMM');
+            return (elapsedTime < 24 && elapsedTime > 0)? dueDate.format('HH:mm') : dueDate.format('D MMMM');
         };
 
         /**

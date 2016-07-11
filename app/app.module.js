@@ -22,7 +22,37 @@ angular.module('dispatcher')
     .constant('ORDER_STATUSES', {
         'HOLD': ['RECOL'],
         'RECOL': ['CO12']
+    })
+    .constant('TASK_VIEW_DEFINITION', {
+        'PICKUP': [
+            'order_number',
+            'customer_name',
+            'customer_address',
+            'proveedores',
+            'order_details',
+            'servicios',
+            'especificaciones',
+            'info'
+        ],
+        'INTERNAL': [
+            'order_number',
+            'customer_name',
+            'order_details',
+            'especificaciones',
+            'info'
+        ],
+        'DELIVERY': [
+            'order_number',
+            'customer_name',
+            'customer_address',
+            'proveedores',
+            'order_details',
+            'info',
+            'payment_info'
+        ]
     });
+
+
 
 angular.module('dispatcher')
     .run(['$rootScope', '$route', 'routingService', function($rootScope, $route, routingService) {

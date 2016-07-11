@@ -8,27 +8,7 @@
                 </md-card-title-text>
             </md-card-title> 
             <md-card-content>
-                <table class="task-info">
-                    <caption>Datos de la orden</caption>
-                    <tr>
-                        <td class="order-number" ng-bind="$ctrl.getTask().getBooking().getOrderNumber()"></td>
-                    </tr>
-                    <tr>
-                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerName()"></td>
-                    </tr>
-                    <tr>
-                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerAddress()"></td>
-                    </tr>
-                    <tr>
-                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerCity()"></td>
-                    </tr>
-                    <tr>
-                        <td ng-bind="$ctrl.getTask().getBooking().getCustomerPhone()"></td>
-                    </tr>
-                    <tr>
-                        <td ng-bind="$ctrl.getTask().getBooking().getStatus()"></td>
-                    </tr>
-                </table>
+                <table class="task-info" ng-bind-html="$ctrl.getTaskView()"></table>
             </md-card-content>
         </md-card>
     </div>

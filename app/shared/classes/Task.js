@@ -1,6 +1,6 @@
 'use strict';
 
-function Task(id, booking, name, startDate, endDate) {
+function Task(id, booking, name, startDate, endDate, code) {
 
     // Private attributes
     var _id = undefined;
@@ -8,20 +8,25 @@ function Task(id, booking, name, startDate, endDate) {
     var _name = undefined;
     var _startDate = undefined;
     var _endDate = undefined;
+    var _code = undefined;
 
     /**
      *
      * @param id
      * @param booking
-     *
+     * @param name
+     * @param startDate
+     * @param endDate
+     * @param code
      */
 
-    this.constructor = function(id, booking, name, startDate, endDate) {
+    this.constructor = function(id, booking, name, startDate, endDate, code) {
         this.setId(id);
         this.setBooking(booking);
         this.setName(name);
         this.setStartDate(startDate);
         this.setEndDate(endDate);
+        this.setCode(code);
     };
 
     /**
@@ -105,6 +110,22 @@ function Task(id, booking, name, startDate, endDate) {
     };
 
     /**
+     *
+     * @returns {undefined}
+     */
+    this.getCode = function(){
+        return _code;
+    };
+
+    /**
+     *
+     * @param code
+     */
+    this.setCode = function(code){
+        _code = code;
+    };
+
+    /**
      * 
      * @returns {string}
      */
@@ -115,10 +136,11 @@ function Task(id, booking, name, startDate, endDate) {
                 ', name: ' + _name +
                 ', startDate: ' + _startDate +
                 ', endDate: ' + _endDate +
+                ', code: ' + _code +
             ']';
     };
 
 
-    this.constructor(id, booking, name, startDate, endDate);
+    this.constructor(id, booking, name, startDate, endDate, code);
 
 };
