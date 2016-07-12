@@ -11,9 +11,9 @@
 
         <md-list-item ng-repeat="task in $ctrl.getTasks() | orderByDate" class="{{ $ctrl.getTaskStyle(task); }}" ng-click="$ctrl.viewDetail(task)">
             <div class="md-list-item-text" layout="column" flex>
-                <h3>{{task.getName()}} - {{task.getBooking().getCustomerName()}}</h3>
-                <h4>{{task.getBooking().getOrderNumber()}}</h4>
-                <p class="due-date" ng-bind="$ctrl.getDueDate(task)"></p>
+                <h3>{{ task.getName()}} - {{task.getBooking().getCustomerName() }}</h3>
+                <h4>{{ task.getBooking().getOrderNumber() }}</h4>
+                <p class="due-date" ng-bind="$ctrl.getTaskTime(task)"></p>
             </div>
             <md-icon md-font-library="material-icons">&#xE315;</md-icon>
         </md-list-item>

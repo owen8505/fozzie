@@ -59,21 +59,8 @@
             return tasks;
         };
 
-        /**
-         *
-         * @param task
-         * @returns {*}
-         */
-        ctrl.getTaskStyle = function (task) {
-            if(task.completed && getElapsedTime(task.dueDate, 'hours') < 24) {
-                return TASK_STATUS_STYLES.completed;
-            } else if(task.completed) {
-                return TASK_STATUS_STYLES.deprecated;
-            } else if(getElapsedTime(task.dueDate, 'minutes') < -10) {
-                return TASK_STATUS_STYLES.warning
-            } else if(getElapsedTime(task.dueDate, 'minutes') >= 0) {
-                return TASK_STATUS_STYLES.expired
-            }
+        ctrl.getTaskTime = function (task) {
+            return (task)? "De " + task.getStartDate().format('HH:mm') + " a " + task.getEndDate().format('HH:mm') : "";
         };
 
         /**

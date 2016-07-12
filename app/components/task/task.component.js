@@ -96,52 +96,68 @@
                     taskView += '<tr><td>' + _task.getBooking().getCustomerName() + '</td></tr>';
                 }
 
+
                 if ( viewElements.indexOf('customer_address') != -1 ){
                     taskView += '<tr><td>' + _task.getBooking().getCustomerAddress() + '</td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getCustomerInterior() + '</td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getCustomerEntreCalles() + '</td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getCustomerCity() + '</td></tr>';
+                    taskView += '<tr><td><a href="tel:' + _task.getBooking().getCustomerPhone() + '">' + _task.getBooking().getCustomerPhone() + '</a></td></tr>';
+                    taskView += '<tr><td>&nbsp;</td></tr>'
+                    taskView += '<tr><td class="label">Comentarios: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getCustomerComentario() + '</td></tr>';
+
 
                     if(_task.getBooking().getCustomerPortero()) {
                         var portero = _task.getBooking().getCustomerPortero();
                         if (portero.substr(0, 2).toLowerCase() == 'sí') {
                             taskView += '<tr><td>' + _task.getBooking().getCustomerPortero() + '</td></tr>';
+                            taskView += '<tr><td>&nbsp;</td></tr>'
                         }
                     }
-
-                    taskView += '<tr><td><a href="tel:' + _task.getBooking().getCustomerPhone() + '">' + _task.getBooking().getCustomerPhone() + '</a></td></tr>';
                 }
 
+                taskView += '<tr><td class="label">Estatus: </td></tr>';
+                taskView += '<tr><td>' + _task.getBooking().getStatus() + '</td></tr>';
+                taskView += '<tr><td>&nbsp;</td></tr>';
+
                 if ( viewElements.indexOf('proveedores') != -1 ){
+                    taskView += '<tr><td class="label">Proveedores: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getProv() + '</td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getProv2() + '</td></tr>';
+                    taskView += '<tr><td>&nbsp;</td></tr>'
                 }
 
                 if ( viewElements.indexOf('servicios') != -1 ){
+                    taskView += '<tr><td class="label">Servicios: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getServicios() + '</td></tr>';
+                    taskView += '<tr><td>&nbsp;</td></tr>'
                 }
 
                 if ( viewElements.indexOf('especificaciones') != -1 ){
+                    taskView += '<tr><td class="label">Especificaciones: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getEspecificaciones() + '</td></tr>';
+                    taskView += '<tr><td>&nbsp;</td></tr>'
                 }
 
                 if ( viewElements.indexOf('payment_info') != -1 ){
                     if(_task.getBooking().getCustomerPortero()) {
                         var formaPago = _task.getBooking().getFormaPago();
                         if (formaPago.toLowerCase() == 'efectivo') {
+                            taskView += '<tr><td class="label">Pago: </td></tr>';
                             taskView += '<tr><td>' + _task.getBooking().getFormaPago() + '</td></tr>';
                             taskView += '<tr><td>' + _task.getBooking().getTotal() + '</td></tr>';
+                            taskView += '<tr><td>&nbsp;</td></tr>'
                         }
                     }
                 }
 
                 if ( viewElements.indexOf('info') != -1 ){
+                    taskView += '<tr><td class="label">Otra información: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getInfoCliente() + '</td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getInfoNotas() + '</td></tr>';
                 }
 
-                taskView += '<tr><td>' + _task.getBooking().getStatus() + '</td></tr>'
             }
 
             return $sce.trustAsHtml(taskView);
