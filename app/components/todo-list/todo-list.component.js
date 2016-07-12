@@ -60,7 +60,7 @@
         };
 
         ctrl.getTaskTime = function (task) {
-            return (task)? "De " + task.getStartDate().format('HH:mm') + " a " + task.getEndDate().format('HH:mm') : "";
+            return (task)? task.getStartDate().format('MMMM DD,') + " de " + task.getStartDate().format('HH:mm') + " a " + task.getEndDate().format('HH:mm') : "";
         };
 
         /**

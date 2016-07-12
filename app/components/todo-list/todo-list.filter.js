@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('dispatcher')
+        .module('todoList')
         .filter('orderByDate', function(){
         /**
          * Order tasks list by date
@@ -13,7 +13,9 @@
             var filtered = [];
 
             angular.forEach(tasks, function(item) {
-                filtered.push(item);
+                if(item.getEndDate().diff(moment(), 'days') >= 0){
+                    filtered.push(item);
+                }
             });
 
             filtered.sort(function (a, b) {
