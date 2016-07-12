@@ -57,26 +57,27 @@ angular.
             $locationProvider.hashPrefix('!');
 
             $routeProvider.
-                when('/login', {
-                    template: '<login></login>',
-                    resolve: authenticate,
-                    view: 'login'
-                }).
-                when('/intro', {
-                    template: '<intro></intro>',
-                    view: 'intro'
-                }).
-                when('/todo', {
-                    template: '<todo-list></todo-list>',
-                    resolve: authenticate,
-                    view: 'todo'
-                }).
-                when('/task/:bookingId/:taskId', {
-                    template: '<task></task>',
-                    resolve: authenticate,
-                    view: 'task'
-                }).
-                otherwise('/intro');
+                    when('/login', {
+                        template: '<login></login>',
+                        resolve: authenticate,
+                        view: 'login'
+                    }).
+                    when('/intro', {
+                        template: '<login></login>',
+                        resolve: authenticate,
+                        view: 'login'
+                    }).
+                    when('/todo', {
+                        template: '<todo-list></todo-list>',
+                        resolve: authenticate,
+                        view: 'todo'
+                    }).
+                    when('/task/:bookingId/:taskId', {
+                        template: '<task></task>',
+                        resolve: authenticate,
+                        view: 'task'
+                    }).
+                    otherwise('/intro');
 
 
         }
