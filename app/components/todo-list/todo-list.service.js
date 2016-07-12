@@ -15,11 +15,20 @@
                     var booking = undefined;
                     for(var j=0; j<bookings.length; j++){
                         if(task.booking_uid == bookings[j].id){
-                            bookings[i].fields.comentario = {'val': 'test'};
-                            bookings[i].fields.prov2 = {'val': 'test'};
-                            bookings[i].fields.info_cli = {'val': 'test'};
-                            bookings[i].fields.info_notas = {'val': 'test'};
-                            booking = new Booking(bookings[i].booking_id, bookings[i].id, bookings[i].customer_name, bookings[i].customer_address, bookings[i].fields.interior.val, bookings[i].fields.entrecalles.val, bookings[i].fields.comentario.val, bookings[i].fields.portero.val, bookings[i].customer_phone, bookings[i].customer_city, bookings[i].fields.prov.val, bookings[i].fields.prov2.val, bookings[i].fields.servicios.val, bookings[i].fields.especificaciones.val, bookings[i].fields.info_cli.val, bookings[i].fields.info_notas.val, bookings[i].status_id, bookings[i].fields.formapago.val, bookings[i].total);
+
+                            var interior = bookings[i].fields.interior ? bookings[i].fields.interior.val : '';
+                            var entrecalles = bookings[i].fields.entrecalles ? bookings[i].fields.entrecalles.val : '';
+                            var comentario = bookings[i].fields.comentario ? bookings[i].fields.comentario.val : '';
+                            var portero = bookings[i].fields.portero ? bookings[i].fields.portero.val : '';
+                            var prov = bookings[i].fields.prov ? bookings[i].fields.prov.val : '';
+                            var prov2 = bookings[i].fields.prov2 ? bookings[i].fields.prov2.val : '';
+                            var servicios = bookings[i].fields.servicios ? bookings[i].fields.servicios.val : '';
+                            var especificaciones = bookings[i].fields.especificaciones ? bookings[i].fields.especificaciones.val : '';
+                            var info_cli = bookings[i].fields.info_cli ? bookings[i].fields.info_cli.val : '';
+                            var info_notas = bookings[i].fields.info_notas ? bookings[i].fields.info_notas.val : '';
+                            var formapago = bookings[i].fields.formapago ? bookings[i].fields.formapago.val : '';
+
+                            booking = new Booking(bookings[i].booking_id, bookings[i].id, bookings[i].customer_name, bookings[i].customer_address, interior, entrecalles, comentario, portero, bookings[i].customer_phone, bookings[i].customer_city, prov, prov2, servicios, especificaciones, info_cli, info_notas, bookings[i].status_id, formapago, bookings[i].total);
                             break;
                         }
                     }

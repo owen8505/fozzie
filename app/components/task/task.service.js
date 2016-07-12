@@ -7,12 +7,22 @@
 
         var transformToObject = function(booking, task){
             try{
-                booking.fields.comentario = {'val': 'test'};
-                booking.fields.prov2 = {'val': 'test'};
-                booking.fields.info_cli = {'val': 'test'};
-                booking.fields.info_notas = {'val': 'test'};
-                var booking = new Booking(booking.booking_id, booking.id, booking.customer_name, booking.customer_address, booking.fields.interior.val, booking.fields.entrecalles.val, booking.fields.comentario.val, booking.fields.portero.val, booking.customer_phone, booking.customer_city, booking.fields.prov.val, booking.fields.prov2.val, booking.fields.servicios.val, booking.fields.especificaciones.val, booking.fields.info_cli.val, booking.fields.info_notas.val, booking.status_id, booking.fields.formapago.val, booking.total);
-                var task = new Task(task.id, booking, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date), 'DELIVERY');
+
+                var interior = booking.fields.interior ? booking.fields.interior.val : '';
+                var entrecalles = booking.fields.entrecalles ? booking.fields.entrecalles.val : '';
+                var comentario = booking.fields.comentario ? booking.fields.comentario.val : '';
+                var portero = booking.fields.portero ? booking.fields.portero.val : '';
+                var prov = booking.fields.prov ? booking.fields.prov.val : '';
+                var prov2 = booking.fields.prov2 ? booking.fields.prov2.val : '';
+                var servicios = booking.fields.servicios ? booking.fields.servicios.val : '';
+                var especificaciones = booking.fields.especificaciones ? booking.fields.especificaciones.val : '';
+                var info_cli = booking.fields.info_cli ? booking.fields.info_cli.val : '';
+                var info_notas = booking.fields.info_notas ? booking.fields.info_notas.val : '';
+                var formapago = booking.fields.formapago ? booking.fields.formapago.val : '';
+
+                var booking = new Booking(booking.booking_id, booking.id, booking.customer_name, booking.customer_address, interior, entrecalles, comentario, portero, booking.customer_phone, booking.customer_city, prov, prov2, servicios, especificaciones, info_cli, info_notas, booking.status_id, formapago, booking.total);
+                var task = new Task(task.id, booking, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date), task.category);
+
             } catch(error){
                 console.log(error);
             }

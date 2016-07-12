@@ -85,7 +85,7 @@
 
             var taskView = "";
             if(_task){
-                var viewElements = TASK_VIEW_DEFINITION[_task.getCode()];
+                var viewElements = TASK_VIEW_DEFINITION[_task.getCategory()];
 
                 taskView += '<caption>Datos de la orden</caption>';
 

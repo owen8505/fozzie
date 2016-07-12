@@ -25,7 +25,7 @@ angular.module('dispatcher')
         'RECOL': ['CO12']
     })
     .constant('TASK_VIEW_DEFINITION', {
-        'PICKUP': [
+        'Servicio de Lavanderia, Tintoreria y/o Planchado': [
             'order_number',
             'customer_name',
             'customer_address',
@@ -35,14 +35,14 @@ angular.module('dispatcher')
             'especificaciones',
             'info'
         ],
-        'INTERNAL': [
+        'Viaje Interno': [
             'order_number',
             'customer_name',
             'order_details',
             'especificaciones',
             'info'
         ],
-        'DELIVERY': [
+        'Entrega a domicilio': [
             'order_number',
             'customer_name',
             'customer_address',
