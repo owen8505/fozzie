@@ -4,12 +4,12 @@
             <div layout="column">
                 <md-input-container>
                     <label>Buscar</label>
-                    <input ng-model="user.title">
+                    <input ng-model="$ctrl.query">
                 </md-input-container>
             </div>
         </md-subheader>
 
-        <md-list-item ng-repeat="task in $ctrl.getTasks() | orderByDate" class="{{ $ctrl.getTaskStyle(task); }}" ng-click="$ctrl.viewDetail(task)">
+        <md-list-item ng-repeat="task in $ctrl.getTasks() | orderByDate | searchOrder:$ctrl.query" class="{{ $ctrl.getTaskStyle(task); }}" ng-click="$ctrl.viewDetail(task)">
             <div class="md-list-item-text" layout="column" flex>
                 <h3>{{ task.getName()}} - {{task.getBooking().getCustomerName() }}</h3>
                 <h4>{{ task.getBooking().getOrderNumber() }}</h4>

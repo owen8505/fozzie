@@ -9,6 +9,8 @@
          */
         var ctrl = this;
 
+        ctrl.query = '';
+
         // Private variables
 
         var TASK_STATUS_STYLES = {

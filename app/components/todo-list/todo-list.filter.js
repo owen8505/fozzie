@@ -26,6 +26,26 @@
 
             return filtered;
         }
+    }).filter('searchOrder', function(){
+
+        return function(tasks, query) {
+
+            var filtered = [];
+            if(query) {
+                angular.forEach(tasks, function(item) {
+                    if(item.getBooking() || item.getBooking().getOrderNumber()){
+                        var taskOrderNumber = item.getBooking().getOrderNumber().toLowerCase();
+                        var queryOrderNumber = query.toLowerCase();
+                        if(taskOrderNumber.indexOf(queryOrderNumber)>=0){
+                            filtered.push(item);
+                        }
+                    }
+                });
+                return filtered;
+            }
+            return tasks;
+        }
+
     });
 
 })(window.angular);
