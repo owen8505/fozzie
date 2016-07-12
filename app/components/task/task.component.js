@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function taskController(taskService, $routeParams, $sce, TASK_VIEW_DEFINITION) {
+    function taskController($mdDialog, $sce, $routeParams, $location, taskService, TASK_VIEW_DEFINITION) {
 
         /**
          *
@@ -23,8 +23,8 @@
         /**
          *
          */
-        var callTask = function(bookingId, taskId) {
-            taskService.callTask()
+        var callTask = function() {
+            taskService.callTask($routeParams.bookingId, $routeParams.taskId)
                 .then(function(data) {
                     if(data.bookings){
                         _task = taskService.getTask();
@@ -69,6 +69,7 @@
                     .then(function(data){
                         if(data.bookings){
                             _task = taskService.getTask();
+                            $location.path('/todo');
                         }
                     }, function(error) {
                         console.log(error);
@@ -165,9 +166,29 @@
 
         /**
          *
+         * @param ev
+         */
+        ctrl.showConfirm = function(ev) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('¿Ya terminaste el viaje?')
+                .textContent('')
+                .ariaLabel('End task')
+                .targetEvent(ev)
+                .ok('Si')
+                .cancel('No');
+            $mdDialog.show(confirm).then(function () {
+                ctrl.endTask();
+            }, function () {
+
+            });
+        };
+
+        /**
+         *
          */
         this.$onInit = function() {
-            callTask($routeParams.bookingId, $routeParams.taskId);
+            callTask();
         }
     }
 

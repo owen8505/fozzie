@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function navigationController($rootScope, $location, navigationService, sessionService, routingService) {
+    function navigationController($location, navigationService, sessionService, routingService) {
 
         /**
          *
