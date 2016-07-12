@@ -19,6 +19,6 @@
 </md-button>
 
 
-<md-button class="md-fab md-fab-bottom-right" aria-label="Finalizar tarea" ng-if="$ctrl.getTask().getBooking().getStatus() == 'RECOL'" ng-click="$ctrl.endTask()">
+<md-button class="md-fab md-fab-bottom-right" aria-label="Finalizar tarea" ng-if="$ctrl.getTask().getBooking().getStatus() == 'RECOL'" ng-click="$ctrl.showConfirm()">
     <md-icon md-font-library="material-icons">&#xE5CA;</md-icon>
 </md-button>

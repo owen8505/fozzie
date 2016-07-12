@@ -79,7 +79,7 @@
          * @param taskId
          */
         ctrl.viewDetail = function(task){
-            $location.path('/task/' + task.getBooking().getOrderNumber() + '/' + task.getId());
+            $location.path('/task/' + task.getBooking().getId() + '/' + task.getId());
         };
 
         /**

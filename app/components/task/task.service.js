@@ -21,7 +21,7 @@
         };
 
         function callTask(bookingId, taskId) {
-            var tasksServiceURL = API_URL_BASE + '/bookings/in_the_future_by_courier?name=Marco';
+            var tasksServiceURL = API_URL_BASE + '/bookings/by_booking_and_item?booking_id=' + bookingId + '&item_id=' + taskId;
             return $http.get(tasksServiceURL)
                 .then(function(response) {
                     var data = response.data;
