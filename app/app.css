@@ -3,6 +3,9 @@
   max-width: 30px;
   width: 100%; }
 
+.intro-component {
+  height: 100%; }
+
 .navigation-component .header img,
 .navigation-component .header h2 {
   display: inline-block; }

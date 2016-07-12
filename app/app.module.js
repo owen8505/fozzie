@@ -11,6 +11,7 @@ angular.module('dispatcher', [
     'ngMaterial',
     'LocalStorageModule',
     'navigation',
+    'intro',
     'login',
     'todoList',
     'task'
