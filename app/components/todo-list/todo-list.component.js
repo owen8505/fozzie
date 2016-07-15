@@ -11,6 +11,8 @@
 
         ctrl.query = '';
 
+        ctrl.loading = false;
+
         // Private variables
 
         var TASK_STATUS_STYLES = {
@@ -27,13 +29,17 @@
          */
         var callTasks = function() {
             tasks = [];
+
+            ctrl.loading = true;
             todoListService.callTasks()
                 .then(function(data) {
                     if(data.bookings){
                         tasks = todoListService.getTasks();
+                        ctrl.loading = false;
                     }
                 }, function(error) {
                     console.log(error);
+                    ctrl.loading = false;
                 });
         };
 

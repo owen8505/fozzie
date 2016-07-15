@@ -1,5 +1,5 @@
-<md-content flex>
-    <md-list ng-cloak class="md-dense todo-list-component">
+<md-content class="todo-list-component" flex ng-if="!$ctrl.loading">
+    <md-list ng-cloak class="md-dense" ng-if="$ctrl.getTasks().length">
         <md-subheader class="md-no-sticky">
             <div layout="column">
                 <md-input-container>
@@ -18,6 +18,14 @@
             <md-icon md-font-library="material-icons">&#xE315;</md-icon>
         </md-list-item>
     </md-list>
+    <div ng-if="!$ctrl.getTasks().length" layout="column" layout-align="center center" layout-fill flex>
+        <div class="empty-state-content">No tienes tareas pendientes</div>
+        <img src="/app/shared/assets/images/sloth.svg" class="md-card-image" alt="Task" flex="20">
+    </div>
+</md-content>
+
+<md-content flex ng-if="$ctrl.loading" layout="row" layout-align="center center" layout-fill>
+    <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
 </md-content>
 
 <md-button class="md-fab md-fab-bottom-right" aria-label="Actualizar" ng-click="$ctrl.refreshTasks()">
