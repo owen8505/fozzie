@@ -63,17 +63,17 @@ angular.
                         view: 'login'
                     }).
                     when('/intro', {
-                        template: '<login></login>',
+                        template: '<intro flex layout="column"></intro>',
                         resolve: authenticate,
-                        view: 'login'
+                        view: 'intro'
                     }).
                     when('/todo', {
-                        template: '<todo-list></todo-list>',
+                        template: '<todo-list flex layout="column"></todo-list>',
                         resolve: authenticate,
                         view: 'todo'
                     }).
                     when('/task/:bookingId/:taskId', {
-                        template: '<task></task>',
+                        template: '<task flex layout="column"></task>',
                         resolve: authenticate,
                         view: 'task'
                     }).
