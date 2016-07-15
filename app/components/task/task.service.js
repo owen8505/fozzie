@@ -19,8 +19,9 @@
                 var info_cli = booking.fields.info_cli ? booking.fields.info_cli.val : '';
                 var info_notas = booking.fields.info_notas ? booking.fields.info_notas.val : '';
                 var formapago = booking.fields.formapago ? booking.fields.formapago.val : '';
+                var phone = booking.customer_phone ? booking.customer_phone.substr(3): '';
 
-                var booking = new Booking(booking.booking_id, booking.id, booking.customer_name, booking.customer_address, interior, entrecalles, comentario, portero, booking.customer_phone, booking.customer_city, prov, prov2, servicios, especificaciones, info_cli, info_notas, booking.status_id, formapago, booking.total);
+                var booking = new Booking(booking.booking_id, booking.id, booking.customer_name, booking.customer_address, interior, entrecalles, comentario, portero, phone, booking.customer_city, prov, prov2, servicios, especificaciones, info_cli, info_notas, booking.status_id, formapago, booking.total);
                 var task = new Task(task.id, booking, task.name, new moment.unix(task.start_date), new moment.unix(task.end_date), task.category);
 
             } catch(error){

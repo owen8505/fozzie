@@ -1,7 +1,7 @@
 (function(angular) {
     'use strict';
 
-    function taskController($mdDialog, $sce, $routeParams, $location, taskService, TASK_VIEW_DEFINITION) {
+    function taskController($scope, $mdDialog, $mdToast, $sce, $routeParams, $location, taskService, TASK_VIEW_DEFINITION) {
 
         /**
          *
@@ -51,6 +51,13 @@
                     .then(function(data){
                         if(data.bookings){
                             _task = taskService.getTask();
+
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent('¡Buen viaje!')
+                                    .position('top right')
+                            );
+
                         }
                     }, function(error) {
                         console.log(error);
@@ -69,6 +76,13 @@
                     .then(function(data){
                         if(data.bookings){
                             _task = taskService.getTask();
+
+                            $mdToast.show(
+                                $mdToast.simple()
+                                    .textContent('¡Buen trabajo!')
+                                    .position('top right')
+                            );
+
                             $location.path('/todo');
                         }
                     }, function(error) {
@@ -100,9 +114,16 @@
 
                 if ( viewElements.indexOf('customer_address') != -1 ){
                     taskView += '<tr><td>' + _task.getBooking().getCustomerAddress() + '</td></tr>';
-                    taskView += '<tr><td>' + _task.getBooking().getCustomerInterior() + '</td></tr>';
-                    taskView += '<tr><td>' + _task.getBooking().getCustomerEntreCalles() + '</td></tr>';
-                    taskView += '<tr><td>' + _task.getBooking().getCustomerCity() + '</td></tr>';
+
+                    if(_task.getBooking().getCustomerInterior()) {
+                        taskView += '<tr><td>Interior: ' + _task.getBooking().getCustomerInterior() + '</td></tr>';
+                    }
+
+                    if(_task.getBooking().getCustomerEntreCalles()) {
+                        taskView += '<tr><td>Entre calles: ' + _task.getBooking().getCustomerEntreCalles() + '</td></tr>';
+                    }
+
+                    taskView += '<tr><td>Colonia: ' + _task.getBooking().getCustomerCity() + '</td></tr>';
                     taskView += '<tr><td><a href="tel:' + _task.getBooking().getCustomerPhone() + '">' + _task.getBooking().getCustomerPhone() + '</a></td></tr>';
                     taskView += '<tr><td>&nbsp;</td></tr>'
                     taskView += '<tr><td class="label">Comentarios: </td></tr>';
@@ -147,21 +168,69 @@
                         if (formaPago.toLowerCase() == 'efectivo') {
                             taskView += '<tr><td class="label">Pago: </td></tr>';
                             taskView += '<tr><td>' + _task.getBooking().getFormaPago() + '</td></tr>';
-                            taskView += '<tr><td>' + _task.getBooking().getTotal() + '</td></tr>';
+                            taskView += '<tr><td>$ ' + _task.getBooking().getTotal() + '</td></tr>';
                             taskView += '<tr><td>&nbsp;</td></tr>'
                         }
                     }
                 }
 
                 if ( viewElements.indexOf('info') != -1 ){
-                    taskView += '<tr><td class="label">Otra información: </td></tr>';
+                    taskView += '<tr><td class="label">Información del cliente: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getInfoCliente() + '</td></tr>';
+                    taskView += '<tr><td>&nbsp;</td></tr>'
+                    taskView += '<tr><td class="label">Notas: </td></tr>';
                     taskView += '<tr><td>' + _task.getBooking().getInfoNotas() + '</td></tr>';
                 }
+
+                taskView += '<tr><td><md-button class="md-raised" ng-click="$ctrl.editNotes()">Editar</md-button></td></tr>';
 
             }
 
             return $sce.trustAsHtml(taskView);
+        };
+
+        ctrl.editNotes = function(ev) {
+            $mdDialog.show({
+                controller: taskController,
+                template: '' +
+                '<md-dialog aria-label="Edit notes"  ng-cloak>' +
+                '   <form>' +
+                '       <md-toolbar>' +
+                '           <div class="md-toolbar-tools">' +
+                '               <h2>Editar notas</h2>' +
+                '               <span flex></span>' +
+                '               <md-button class="md-icon-button" ng-click="cancel()">' +
+                '                   <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>'+
+                '               </md-button>' +
+                '           </div>' +
+                '       </md-toolbar>' +
+                '       <md-dialog-content>' +
+                '           <div class="md-dialog-content">' +
+                '               <md-input-container>' +
+                '                   <label>Notas</label>' +
+                '                   <input ng-model="user.email" type="email">' +
+                '               </md-input-container>' +
+                '           </div>' +
+                '       </md-dialog-content>' +
+                '       <md-dialog-actions layout="row">' +
+                '           <md-button ng-click="answer(\'algo\')">' +
+                '               Cancelar' +
+                '           </md-button>' +
+                '           <md-button ng-click="answer(\'algo2\')">' +
+                '               Guardar' +
+                '           </md-button>' +
+                '       </md-dialog-actions>' +
+                '   <form>' +
+                '</md-dialog>',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose:true
+            })
+                .then(function(answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.status = 'You cancelled the dialog.';
+                });
         };
 
         /**
