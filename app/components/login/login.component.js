@@ -11,7 +11,7 @@
 
         // Object that holds the username and password values
         ctrl.credentials = {
-            email: '',
+            nickname: '',
             password: undefined
         };
 
