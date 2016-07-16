@@ -80,11 +80,16 @@
                 });
         }
         
+        function updateNotes() {
+            _task.getBooking().setInfoNotas('Prueba');
+        }
+        
         var service = {
             callTask: callTask,
             getTask: getTask,
             validateStatusChange: validateStatusChange,
-            updateTaskStatus: updateTaskStatus
+            updateTaskStatus: updateTaskStatus,
+            updateNotes: updateNotes
         };
 
         return service;

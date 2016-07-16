@@ -16,6 +16,14 @@
          */
         var _task = undefined;
 
+        /**
+         *
+         * @type {{notes: string}}
+         */
+        ctrl.edit = {
+            notes : ''
+        };
+
         ctrl.getTaskTitle = function () {
             return (_task)?  $sce.trustAsHtml(_task.getName() + "<br> De " + _task.getStartDate().format('HH:mm') + " a " + _task.getEndDate().format('HH:mm')) : "";
         };
@@ -182,25 +190,28 @@
                     taskView += '<tr><td>' + _task.getBooking().getInfoNotas() + '</td></tr>';
                 }
 
-                taskView += '<tr><td><md-button class="md-raised" ng-click="$ctrl.editNotes()">Editar</md-button></td></tr>';
+                taskView += '<tr><td><md-button class="md-raised" ng-click="$ctrl.promptNotes()">Editar</md-button></td></tr>';
 
             }
 
             return $sce.trustAsHtml(taskView);
         };
 
-        ctrl.editNotes = function(ev) {
+        ctrl.promptNotes = function(ev) {
+
+            ctrl.edit.notes = angular.copy(_task.getBooking().getInfoNotas());
+
             $mdDialog.show({
                 controller: taskController,
                 template: '' +
-                '<md-dialog aria-label="Edit notes"  ng-cloak>' +
+                '<md-dialog aria-label="Edit notes" flex="80" ng-cloak>' +
                 '   <form>' +
                 '       <md-toolbar>' +
                 '           <div class="md-toolbar-tools">' +
-                '               <h2>Editar notas</h2>' +
+                '               <h2>Editar</h2>' +
                 '               <span flex></span>' +
-                '               <md-button class="md-icon-button" ng-click="cancel()">' +
-                '                   <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>'+
+                '               <md-button class="md-icon-button" ng-click="$ctrl.cancel()">' +
+                '                   <md-icon md-font-library="material-icons">&#xE5CD;</md-icon>'+
                 '               </md-button>' +
                 '           </div>' +
                 '       </md-toolbar>' +
@@ -208,29 +219,42 @@
                 '           <div class="md-dialog-content">' +
                 '               <md-input-container>' +
                 '                   <label>Notas</label>' +
-                '                   <input ng-model="user.email" type="email">' +
+                '                   <textarea ng-model="$ctrl.edit.notes" placeholder="Las notas van aquí"></textarea>' +
                 '               </md-input-container>' +
                 '           </div>' +
                 '       </md-dialog-content>' +
                 '       <md-dialog-actions layout="row">' +
-                '           <md-button ng-click="answer(\'algo\')">' +
+                '           <md-button ng-click="$ctrl.cancel()">' +
                 '               Cancelar' +
                 '           </md-button>' +
-                '           <md-button ng-click="answer(\'algo2\')">' +
+                '           <md-button ng-click="$ctrl.editNotes()">' +
                 '               Guardar' +
                 '           </md-button>' +
                 '       </md-dialog-actions>' +
-                '   <form>' +
+                '   </form>' +
                 '</md-dialog>',
                 parent: angular.element(document.body),
+                scope: $scope,
+                preserveScope: true,
                 targetEvent: ev,
                 clickOutsideToClose:true
-            })
-                .then(function(answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function() {
-                    $scope.status = 'You cancelled the dialog.';
-                });
+            });
+        };
+
+        /**
+         *
+         */
+        ctrl.cancel = function() {
+            $mdDialog.cancel();
+        };
+
+        /**
+         *
+         */
+        ctrl.editNotes = function() {
+            taskService.updateNotes();
+            _task = taskService.getTask();
+            $mdDialog.hide();
         };
 
         /**

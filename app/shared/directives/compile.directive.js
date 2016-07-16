@@ -14,6 +14,7 @@
 
                 scope.$watch(getResult, function (newValue) {
                     var linker = $compile(newValue);
+                    element.empty();
                     element.append(linker(scope));
                 });
             }
