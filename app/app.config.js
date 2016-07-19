@@ -4,7 +4,7 @@ angular.
         function config($locationProvider, $routeProvider, $mdThemingProvider, localStorageServiceProvider) {
 
             $mdThemingProvider.theme('default')
-                .primaryPalette('indigo')
+                .primaryPalette('light-blue')
                 .accentPalette('orange');
 
             localStorageServiceProvider.setPrefix('');
@@ -63,17 +63,17 @@ angular.
                         view: 'login'
                     }).
                     when('/intro', {
-                        template: '<intro flex layout="column"></intro>',
+                        template: '<login></login>',
                         resolve: authenticate,
-                        view: 'intro'
+                        view: 'login'
                     }).
                     when('/todo', {
-                        template: '<todo-list flex layout="column"></todo-list>',
+                        template: '<todo-list layout="column"></todo-list>',
                         resolve: authenticate,
                         view: 'todo'
                     }).
                     when('/task/:bookingId/:taskId', {
-                        template: '<task flex layout="column"></task>',
+                        template: '<task layout-fill></task>',
                         resolve: authenticate,
                         view: 'task'
                     }).

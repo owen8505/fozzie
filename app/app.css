@@ -57,6 +57,15 @@
 
 .empty-state-content {
   margin-bottom: 32px; }
+  .empty-state-content .empty-state-title {
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    width: 100%; }
+  .empty-state-content .empty-state-image {
+    display: block;
+    margin: 2rem auto;
+    width: 60%; }
 
 .task-component {
   background: #E8EAF6; }
@@ -81,13 +90,19 @@
       font-weight: bold;
       text-align: left; }
     .task-component .task-info .order-number {
-      font-size: 2rem;
-      font-weight: bold; }
-    .task-component .task-info .label {
-      font-size: 1.2rem;
-      font-weight: bold; }
+      font-size: 2rem; }
 
 #main {
   overflow: scroll; }
+
+.title-app {
+  color: white;
+  font-weight: bold !important; }
+  .title-app span {
+    font-size: 1rem; }
+
+.label {
+  color: #757575;
+  font-size: 16px; }
 
 /*# sourceMappingURL=app.css.map */
