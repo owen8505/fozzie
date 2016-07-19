@@ -63,12 +63,12 @@ angular.
                         view: 'login'
                     }).
                     when('/intro', {
-                        template: '<login></login>',
+                        template: '<intro></intro>',
                         resolve: authenticate,
                         view: 'login'
                     }).
                     when('/todo', {
-                        template: '<todo-list layout="column"></todo-list>',
+                        template: '<todo-list layout-fill layout="column" flex></todo-list>',
                         resolve: authenticate,
                         view: 'todo'
                     }).

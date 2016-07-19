@@ -57,15 +57,11 @@
 
 .empty-state-content {
   margin-bottom: 32px; }
-  .empty-state-content .empty-state-title {
-    display: block;
-    margin: 2rem auto;
-    text-align: center;
-    width: 100%; }
   .empty-state-content .empty-state-image {
     display: block;
     margin: 2rem auto;
-    width: 60%; }
+    width: 50%;
+    max-width: 300px; }
 
 .task-component {
   background: #E8EAF6; }

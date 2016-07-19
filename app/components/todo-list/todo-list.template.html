@@ -1,4 +1,4 @@
-<md-content class="todo-list-component" ng-if="!$ctrl.loading" layout="column" layout-fill="" flex>
+<md-content class="todo-list-component" ng-if="!$ctrl.loading" layout="column" layout-fill flex>
     <md-list ng-cloak class="md-dense" ng-if="$ctrl.getTasks().length">
         <md-subheader class="md-no-sticky">
             <div layout="column">
@@ -18,10 +18,10 @@
             <md-icon md-font-library="material-icons">&#xE315;</md-icon>
         </md-list-item>
     </md-list>
-    <div ng-if="!$ctrl.getTasks().length" layout="column" layout-align="center center" layout-fill flex>
-        <div class="empty-state-content" flex>
-            <img class="empty-state-image" src="/app/shared/assets/images/sloth.svg" alt="Task">
-            <h3 class="empty-state-title">No tienes tareas pendientes</h3>
+    <div ng-if="!$ctrl.getTasks().length" layout="row" layout-align="center center" layout-fill flex>
+        <div class="empty-state-content" layout="column" layout-align="center center" layout-fill flex>
+            <img src="/app/shared/assets/images/sloth.svg" class="md-card-image empty-state-image" alt="Task">
+            <h3>No tienes tareas pendientes</h3>
         </div>
     </div>
 </md-content>
