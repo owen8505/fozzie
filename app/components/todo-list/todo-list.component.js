@@ -9,8 +9,6 @@
          */
         var ctrl = this;
 
-        ctrl.query = '';
-
         ctrl.loading = false;
 
         // Private variables

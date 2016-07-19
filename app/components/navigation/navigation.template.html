@@ -1,4 +1,4 @@
-<md-toolbar class="navigation-component" ng-if="$ctrl.getView() != 'task'">
+<md-toolbar class="navigation-component" ng-if="$ctrl.getView() && $ctrl.getView() != 'task'">
     <div class="header md-toolbar-tools" layout="row">
         <div flex="80">
             <img src="shared/assets/images/logo.svg" alt="Logo lavadero" class="logo">
@@ -11,11 +11,11 @@
 </md-toolbar>
 
 
-<md-toolbar md-scroll-shrink ng-if="$ctrl.getView() == 'task'">
+<md-toolbar class="navigation-component" md-scroll-shrink ng-if="$ctrl.getView() && $ctrl.getView() == 'task'">
     <div class="header md-toolbar-tools" layout="row">
         <div flex="10">
             <md-button class="md-icon-button" ng-click="$ctrl.goTo('/todo')" aria-label="Menu">
-                <md-icon md-font-library="material-icons">&#xE5C4;</md-icon>
+                <md-icon md-font-library="material-icons" class="menu-item">&#xE5C4;</md-icon>
             </md-button>
         </div>
         <div flex="80" layout="row" layout-align="center">
