@@ -80,8 +80,8 @@
                 });
         }
         
-        function updateNotes() {
-            _task.getBooking().setInfoNotas('Prueba');
+        function updateNotes(notes) {
+            _task.getBooking().setInfoNotas(notes);
         }
         
         var service = {

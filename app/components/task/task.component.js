@@ -222,9 +222,9 @@
                 '               </md-button>' +
                 '           </div>' +
                 '       </md-toolbar>' +
-                '       <md-dialog-content>' +
-                '           <div class="md-dialog-content">' +
-                '               <md-input-container>' +
+                '       <md-dialog-content layout="row">' +
+                '           <div class="md-dialog-content" layout-fill>' +
+                '               <md-input-container layout-fill>' +
                 '                   <label>Notas</label>' +
                 '                   <textarea ng-model="$ctrl.edit.notes" placeholder="Las notas van aquí"></textarea>' +
                 '               </md-input-container>' +
@@ -259,7 +259,7 @@
          *
          */
         ctrl.editNotes = function() {
-            taskService.updateNotes();
+            taskService.updateNotes(ctrl.edit.notes);
             _task = taskService.getTask();
             $mdDialog.hide();
         };
